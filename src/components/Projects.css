@@ -1,0 +1,906 @@
+/* ==========================================================================
+   Crafted With Care & Precision - True 3D Cylinder / Sphere Carousel
+   Authentic 3D Cylindrical Geometry, Physics Drag & Quiet Luxury Styling
+   ========================================================================== */
+
+/* Ambient Section Background Glow */
+.projects-section {
+  position: relative;
+  background: var(--bg-surface);
+  overflow: hidden;
+  padding: 5.5rem 0 6rem 0;
+  scroll-margin-top: 80px;
+}
+
+.projects-ambient-glow {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 950px;
+  max-width: 95vw;
+  height: 520px;
+  background: radial-gradient(ellipse at center, rgba(255, 106, 0, 0.07) 0%, rgba(245, 158, 11, 0.02) 50%, transparent 75%);
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(70px);
+}
+
+/* ==========================================================================
+   Top Controls Bar: Filters & View Switcher
+   ========================================================================== */
+.projects-controls-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-bottom: 2.25rem;
+  position: relative;
+  z-index: 20;
+}
+
+/* Category Filter Tabs */
+.projects-filter-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.4rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.4);
+}
+
+.projects-filter-btn {
+  padding: 0.45rem 1.05rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  white-space: nowrap;
+}
+
+.projects-filter-btn:hover {
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.projects-filter-btn.is-active {
+  background: var(--brand-gradient);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 4px 16px var(--color-orange-glow);
+}
+
+.projects-filter-count {
+  font-size: 0.68rem;
+  padding: 0.1rem 0.42rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.2);
+  color: inherit;
+  font-family: var(--font-mono, monospace);
+}
+
+.projects-filter-btn:not(.is-active) .projects-filter-count {
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+}
+
+/* Sleek Center Divider */
+.projects-controls-divider {
+  width: 1px;
+  height: 28px;
+  background: var(--border-subtle);
+  opacity: 0.8;
+}
+
+/* View Mode Switcher */
+.projects-view-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.4rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.4);
+}
+
+.projects-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.projects-toggle-btn:hover {
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.projects-toggle-btn.is-active {
+  background: var(--brand-gradient);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 4px 16px var(--color-orange-glow);
+}
+
+/* ==========================================================================
+   TRUE 3D CYLINDER STAGE & ROTOR CONTAINER
+   ========================================================================== */
+.projects-cylinder-stage {
+  position: relative;
+  width: 100%;
+  max-width: 1150px;
+  height: 480px;
+  margin: 1.5rem auto 1.5rem auto;
+  perspective: 1300px;
+  perspective-origin: 50% 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: grab;
+  touch-action: pan-y;
+}
+
+.projects-cylinder-stage.is-dragging {
+  cursor: grabbing;
+}
+
+/* The spinning 3D Cylinder Rotor */
+.projects-cylinder-rotor {
+  position: absolute;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.projects-cylinder-rotor.is-free-dragging {
+  transition: none !important;
+}
+
+/* ==========================================================================
+   3D CYLINDER COMPACT CARDS
+   ========================================================================== */
+.cylinder-card {
+  position: absolute;
+  width: 255px;
+  height: 395px;
+  left: -127.5px;
+  top: -197.5px;
+  border-radius: 18px;
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+  overflow: hidden;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform, opacity, filter, box-shadow;
+  transition: opacity 0.4s ease, filter 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  box-shadow: 0 10px 28px -6px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+
+/* Active Center Card Highlight */
+.cylinder-card.is-active-card {
+  border-color: rgba(255, 106, 0, 0.55);
+  box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.65),
+              0 0 35px -5px rgba(255, 106, 0, 0.38);
+  cursor: default;
+}
+
+/* Active Top Subtle Neon Line */
+.cylinder-card.is-active-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 8%;
+  right: 8%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--brand-orange), transparent);
+  opacity: 0.95;
+  z-index: 15;
+}
+
+/* Click Overlay on Inactive Cards */
+.cylinder-inactive-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 64px; /* Leaves the action footer completely exposed and clickable on all cards */
+  z-index: 25;
+  background: rgba(10, 14, 23, 0.22);
+  cursor: pointer;
+  transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px 18px 0 0;
+}
+
+.cylinder-card:hover .cylinder-inactive-overlay {
+  background: rgba(10, 14, 23, 0.05);
+}
+
+.cylinder-click-hint {
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-full);
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  font-size: 0.74rem;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: all 0.25s ease;
+  pointer-events: none;
+}
+
+.cylinder-card:hover .cylinder-click-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Card Internal Structure (Media, Body, Actions)
+   ========================================================================== */
+.cylinder-card-media {
+  position: relative;
+  width: 100%;
+  height: 135px;
+  overflow: hidden;
+  background: var(--bg-elevated);
+}
+
+.cylinder-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.cylinder-card.is-active-card:hover .cylinder-card-img {
+  transform: scale(1.05);
+}
+
+/* Media bottom vignette */
+.cylinder-card-media::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: linear-gradient(to top, var(--bg-card) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Floating Badges */
+.cylinder-card-badges {
+  position: absolute;
+  top: 0.65rem;
+  left: 0.65rem;
+  right: 0.65rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 12;
+  pointer-events: none;
+}
+
+.cylinder-pill-cat {
+  padding: 0.22rem 0.6rem;
+  border-radius: var(--radius-full);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  background: rgba(10, 14, 23, 0.8);
+  backdrop-filter: blur(10px);
+  color: #f1f5f9;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.cylinder-pill-feat {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.22rem 0.6rem;
+  border-radius: var(--radius-full);
+  font-size: 0.66rem;
+  font-weight: 700;
+  background: rgba(255, 106, 0, 0.9);
+  color: #ffffff;
+  box-shadow: 0 2px 10px rgba(255, 106, 0, 0.4);
+}
+
+/* Card Body */
+.cylinder-card-body {
+  padding: 0.95rem 1.1rem 1.1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.cylinder-card-subheading {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--brand-orange);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cylinder-card-title {
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.3;
+  margin-bottom: 0.4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cylinder-card-desc {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 0.65rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.3em;
+}
+
+/* Tech Badges */
+.cylinder-tech-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-bottom: 0.8rem;
+}
+
+.cylinder-tech-pill {
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.18rem 0.5rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  white-space: nowrap;
+}
+
+/* Action Footer */
+.cylinder-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border-subtle);
+  gap: 0.5rem;
+  position: relative;
+  z-index: 50;
+  transform: translateZ(28px);
+  pointer-events: auto !important;
+}
+
+.cylinder-actions-group {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  position: relative;
+  z-index: 55;
+  pointer-events: auto !important;
+}
+
+.cylinder-btn-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 700;
+  background: var(--brand-gradient);
+  color: #ffffff !important;
+  text-decoration: none;
+  box-shadow: 0 4px 12px var(--color-orange-glow);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  border: none;
+  white-space: nowrap;
+  position: relative;
+  z-index: 60;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  transform: translateZ(6px);
+}
+
+.cylinder-btn-live:hover {
+  transform: translateZ(12px) translateY(-2px);
+  box-shadow: 0 6px 18px var(--color-orange-glow);
+  color: #ffffff !important;
+}
+
+.cylinder-btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-full);
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+  text-decoration: none;
+  position: relative;
+  z-index: 60;
+  pointer-events: auto !important;
+  transform: translateZ(6px);
+}
+
+.cylinder-btn-icon:hover {
+  color: var(--brand-orange);
+  border-color: rgba(255, 106, 0, 0.4);
+  background: rgba(255, 106, 0, 0.12);
+  transform: translateZ(12px) translateY(-2px);
+}
+
+/* ==========================================================================
+   FLOATING ARROW NAVIGATION BUTTONS
+   ========================================================================== */
+.cylinder-nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 50;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cylinder-nav-arrow:hover {
+  border-color: rgba(255, 106, 0, 0.5);
+  color: var(--brand-orange);
+  box-shadow: 0 0 25px rgba(255, 106, 0, 0.35);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.cylinder-nav-arrow:active {
+  transform: translateY(-50%) scale(0.92);
+}
+
+.cylinder-nav-prev {
+  left: max(0.5rem, calc(50% - 560px));
+}
+
+.cylinder-nav-next {
+  right: max(0.5rem, calc(50% - 560px));
+}
+
+/* ==========================================================================
+   GRID VIEW (EXPANSIVE MULTI-CARD BROWSER)
+   Restored to original full, comfortable, spacious dimensions
+   ========================================================================== */
+.projects-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.75rem;
+  align-items: stretch;
+  animation: fadeIn 0.4s ease;
+}
+
+.projects-grid-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 22px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.projects-grid-card:hover {
+  border-color: rgba(255, 106, 0, 0.45);
+  transform: translateY(-6px);
+  box-shadow: 0 22px 48px -12px rgba(0, 0, 0, 0.5),
+              0 0 30px -6px rgba(255, 106, 0, 0.22);
+}
+
+.projects-grid-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 8%;
+  right: 8%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--brand-orange), transparent);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: 10;
+}
+
+.projects-grid-card:hover::before {
+  opacity: 1;
+}
+
+.projects-grid-media {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: var(--bg-elevated);
+  cursor: pointer;
+}
+
+.projects-grid-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.projects-grid-card:hover .projects-grid-img {
+  transform: scale(1.05);
+}
+
+.projects-grid-media::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 65px;
+  background: linear-gradient(to top, var(--bg-card) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.projects-grid-badges {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  right: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 12;
+  pointer-events: none;
+}
+
+.projects-grid-pill-cat {
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.25px;
+  background: rgba(10, 14, 23, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #f1f5f9;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.projects-grid-pill-feat {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: rgba(255, 106, 0, 0.92);
+  color: #ffffff;
+  box-shadow: 0 2px 12px rgba(255, 106, 0, 0.45);
+}
+
+.projects-grid-body {
+  padding: 1.5rem 1.6rem 1.6rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.projects-grid-subheading {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--brand-orange);
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+.projects-grid-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.35;
+  margin-bottom: 0.6rem;
+  cursor: pointer;
+  transition: color 0.25s ease;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.projects-grid-title:hover {
+  color: var(--brand-orange);
+}
+
+.projects-grid-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 1.15rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 4.4em;
+}
+
+.projects-grid-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.3rem;
+}
+
+.projects-grid-tech-pill {
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  white-space: nowrap;
+  transition: border-color 0.2s ease;
+}
+
+.projects-grid-card:hover .projects-grid-tech-pill {
+  border-color: rgba(255, 106, 0, 0.25);
+}
+
+.projects-grid-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.15rem;
+  border-top: 1px solid var(--border-subtle);
+  gap: 0.65rem;
+}
+
+.projects-grid-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.projects-grid-btn-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.52rem 1.15rem;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 700;
+  background: var(--brand-gradient);
+  color: #ffffff;
+  text-decoration: none;
+  box-shadow: 0 4px 14px var(--color-orange-glow);
+  transition: all 0.25s ease;
+  border: none;
+  white-space: nowrap;
+}
+
+.projects-grid-btn-live:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--color-orange-glow);
+  color: #ffffff;
+}
+
+.projects-grid-btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-full);
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.projects-grid-btn-icon:hover {
+  color: var(--brand-orange);
+  border-color: rgba(255, 106, 0, 0.4);
+  background: rgba(255, 106, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   RESPONSIVENESS & BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 992px) {
+  .projects-cylinder-stage {
+    height: 460px;
+  }
+  .cylinder-card {
+    width: 235px;
+    height: 380px;
+    left: -117.5px;
+    top: -190px;
+  }
+  .cylinder-nav-prev {
+    left: 0.5rem;
+  }
+  .cylinder-nav-next {
+    right: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-controls-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  .projects-filter-group {
+    justify-content: center;
+  }
+  .projects-view-toggle {
+    align-self: center;
+  }
+  .projects-cylinder-stage {
+    height: 440px;
+  }
+  .cylinder-card {
+    width: 210px;
+    height: 360px;
+    left: -105px;
+    top: -180px;
+    border-radius: 16px;
+  }
+  .cylinder-card-media {
+    height: 125px;
+  }
+  .cylinder-card-body {
+    padding: 0.85rem;
+  }
+  .cylinder-card-title {
+    font-size: 0.95rem;
+  }
+  .cylinder-nav-arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .projects-controls-divider {
+    display: none;
+  }
+
+  .projects-controls-bar {
+    gap: 0.65rem;
+  }
+
+  .projects-grid-container {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .projects-grid-media {
+    height: 190px;
+  }
+  .projects-grid-body {
+    padding: 1.25rem;
+  }
+  .projects-grid-title {
+    font-size: 1.18rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-cylinder-stage {
+    height: 410px;
+  }
+  .cylinder-card {
+    width: 185px;
+    height: 335px;
+    left: -92.5px;
+    top: -167.5px;
+  }
+  .cylinder-card-media {
+    height: 110px;
+  }
+  .cylinder-btn-live {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.68rem;
+  }
+  .cylinder-btn-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .projects-grid-media {
+    height: 170px;
+  }
+  .projects-grid-body {
+    padding: 1.1rem;
+  }
+  .projects-grid-title {
+    font-size: 1.1rem;
+  }
+  .projects-grid-btn-live {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.76rem;
+  }
+  .projects-grid-btn-icon {
+    width: 34px;
+    height: 34px;
+  }
+}
+
