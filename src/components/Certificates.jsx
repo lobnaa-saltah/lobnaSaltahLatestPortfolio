@@ -236,7 +236,6 @@ export default function Certificates() {
               const itemRole = item.role ? (item.role[language] || item.role.ar) : '';
               const itemRankBadge = item.rankBadge ? (item.rankBadge[language] || item.rankBadge.ar) : '';
               const badgeClass = getBadgeColorClass(item.category);
-              const imagesCount = getItemImagesCount(item);
 
               return (
                 <div
@@ -277,11 +276,6 @@ export default function Certificates() {
                     <span className={`cert-3d-pill-rank ${badgeClass}`}>
                       <Award size={12} />
                       <span>{itemRankBadge.split('•')[0] || itemRankBadge}</span>
-                    </span>
-
-                    <span className="cert-3d-pill-count">
-                      <Maximize2 size={11} />
-                      <span>{imagesCount} {isArabic ? 'صور' : 'Photos'}</span>
                     </span>
                   </div>
 

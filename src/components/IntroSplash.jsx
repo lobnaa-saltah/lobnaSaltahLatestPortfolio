@@ -31,49 +31,6 @@ export default function IntroSplash({ onFinish }) {
       className={`intro-splash-container ${phase === 'exit' ? 'intro-exit' : ''}`}
       aria-hidden="true"
     >
-      <button
-        type="button"
-        onClick={(e) => {
-          e.stopPropagation();
-          onFinish();
-        }}
-        aria-label="Skip Intro"
-        style={{
-          position: 'absolute',
-          top: '1.25rem',
-          right: '1.25rem',
-          background: 'rgba(255, 255, 255, 0.08)',
-          border: '1px solid rgba(255, 255, 255, 0.18)',
-          color: 'rgba(255, 255, 255, 0.8)',
-          padding: '0.4rem 0.95rem',
-          borderRadius: '9999px',
-          fontSize: '0.78rem',
-          fontWeight: 700,
-          cursor: 'pointer',
-          zIndex: 100,
-          backdropFilter: 'blur(10px)',
-          WebkitBackdropFilter: 'blur(10px)',
-          transition: 'all 0.2s ease',
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '0.35rem'
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.color = '#ff6a00';
-          e.currentTarget.style.borderColor = '#ff6a00';
-          e.currentTarget.style.background = 'rgba(255, 106, 0, 0.12)';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.color = 'rgba(255, 255, 255, 0.8)';
-          e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.18)';
-          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
-        }}
-      >
-        <span>تخطي</span>
-        <span>•</span>
-        <span>Skip ✕</span>
-      </button>
-
       <div className="intro-bg-ambient" />
 
       <div className="intro-stars-layer">

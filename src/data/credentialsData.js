@@ -52,7 +52,7 @@ export const credentialsData = [
       ar: 'تم إتمام المسارين واعتماد الشهادات الرسمية',
       en: 'Dual Tracks Completed & Certified'
     },
-    primaryImage: '/depiReactCertificate.jpeg',
+    primaryImage: '/credentials/01-depi/depiReactCertificate.jpeg',
     description: {
       ar: 'إتمام منحة رواد مصر الرقمية المرموقة تحت مظلة وزارة الاتصالات وتكنولوجيا المعلومات في مسارين متكاملين: مسار تطوير الواجهات الأمامية التفاعلية بتقنية React الحديثة (بالشراكة مع elharefa و NEXT و CTO Courses)، ومسار اللغة الإنجليزية للأعمال والتواصل المؤسسي (Round 4) بالتعاون مع SYE English Community. البرنامج معتمد رسمياً بشهادات إنجاز موثقة وملفات PDF أصلية.',
       en: 'Graduated from the prestigious Digital Egypt Pioneers Initiative (DEPI) under the Egyptian Ministry of CIT across two complementary tracks: Modern React Frontend Web Development (partnered with elharefa, NEXT & CTO Courses) and Business English Professional Communication (Round 4) delivered with SYE English Community, backed by verified official PDF credentials.'
@@ -96,8 +96,8 @@ export const credentialsData = [
           ar: 'رواد مصر الرقمية • elharefa و NEXT و CTO Courses',
           en: 'DEPI • elharefa, NEXT & CTO Courses'
         },
-        image: '/depiReactCertificate.jpeg',
-        pdfUrl: '/Lobna Saad Salah IsmailDepiReactTrack.pdf'
+        image: '/credentials/01-depi/depiReactCertificate.jpeg',
+        pdfUrl: '/credentials/01-depi/Lobna Saad Salah IsmailDepiReactTrack.pdf'
       },
       {
         id: 'depi-english',
@@ -109,8 +109,8 @@ export const credentialsData = [
           ar: 'وزارة الاتصالات وتكنولوجيا المعلومات ومؤسسة SYE English Community',
           en: 'Ministry of CIT & SYE English Community'
         },
-        image: '/depiEnglishCertificate.jpeg',
-        pdfUrl: '/Lobna Saad SalahDEPIenglishCourse.pdf'
+        image: '/credentials/01-depi/depiEnglishCertificate.jpeg',
+        pdfUrl: '/credentials/01-depi/Lobna Saad SalahDEPIenglishCourse.pdf'
       }
     ]
   },
@@ -604,17 +604,17 @@ export const credentialsData = [
       ar: 'شهادة شكر وتقدير رسمية ممنوحة من إدارة كلية الذكاء الاصطناعي بجامعة كفر الشيخ تقديراً للتميز والجهد الاستثنائي في بناء وتطوير "منصة مشاريع كلية الذكاء الاصطناعي"، لتكون المنصة الرقمية الموحدة لعرض وتوثيق وأرشفة مشاريع تخرج الطلاب وأبحاثهم التقنية، بإشراف الدكتورة مروة الصديق والمهندس عبد الرؤوف حواش.',
       en: 'Official Certificate of Appreciation awarded by the Faculty of Artificial Intelligence leadership at Kafr El-Sheikh University in recognition of outstanding technical contribution in designing and developing the "Faculty of AI Projects Platform", centralizing graduation projects and research archives.'
     },
-    primaryImage: '/lobnaCertificate2.jpeg',
+    primaryImage: '/credentials/04-academic/lobnaCertificate2.jpeg',
     gallery: [
       {
-        url: '/lobnaCertificate2.jpeg',
+        url: '/credentials/04-academic/lobnaCertificate2.jpeg',
         title: {
           ar: 'شهادة التقدير الرسمية لتطوير منصة مشاريع كلية الذكاء الاصطناعي (10 مايو 2026)',
           en: 'Official University Certificate of Appreciation for Faculty Projects Platform'
         }
       },
       {
-        url: '/lobnaCertificate.jpeg',
+        url: '/credentials/04-academic/lobnaCertificate.jpeg',
         title: {
           ar: 'لحظة استلام شهادة التكريم أمام الحرم الجامعي ومبنى الكلية',
           en: 'Receiving the Certificate on the university campus'
