@@ -96,7 +96,7 @@ export default function Contact() {
     <section id="contact" className="section-wrapper" style={{ background: 'var(--bg-surface)' }}>
       <div className="container">
         
-        <div className="section-header">
+        <div className="section-header reveal-on-scroll reveal-slide-up">
           <div className="section-badge">
             <Sparkles size={16} />
             <span>{t('contact_badge')}</span>
@@ -116,7 +116,7 @@ export default function Contact() {
           }}
         >
 
-          <div className="glass-card" style={{ padding: '2.5rem' }}>
+          <div className="glass-card reveal-on-scroll reveal-slide-up delay-150 card-hover-fx" style={{ padding: '2.5rem' }}>
             <form onSubmit={handleTelegramSubmit}>
               <div style={{ marginBottom: '1.5rem' }}>
                 <label

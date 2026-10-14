@@ -5,7 +5,8 @@ import {
   Sun,
   Moon,
   Menu,
-  X
+  X,
+  Globe
 } from 'lucide-react';
 
 export default function Navbar() {
@@ -174,6 +175,7 @@ export default function Navbar() {
             
             <button
               onClick={toggleLanguage}
+              className="desktop-only-action"
               title={language === 'ar' ? 'Switch to English' : 'التحويل للعربية'}
               aria-label={language === 'ar' ? 'Switch to English' : 'التحويل للعربية'}
               style={{
@@ -189,7 +191,6 @@ export default function Navbar() {
                 fontWeight: 700,
                 letterSpacing: 'normal',
                 fontFamily: language === 'ar' ? 'var(--font-en)' : 'var(--font-ar)',
-                display: 'inline-flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 textAlign: 'center',
@@ -223,6 +224,7 @@ export default function Navbar() {
 
             <button
               onClick={toggleTheme}
+              className="desktop-only-action"
               title={theme === 'dark' ? 'Switch to Light Mode' : 'التحويل للوضع الليلي'}
               style={{
                 width: '36px',
@@ -231,7 +233,6 @@ export default function Navbar() {
                 background: 'transparent',
                 border: '1px solid var(--border-subtle)',
                 color: 'var(--text-secondary)',
-                display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 cursor: 'pointer'
@@ -268,7 +269,7 @@ export default function Navbar() {
         style={{
           position: 'fixed',
           inset: 0,
-          background: 'rgba(8, 10, 15, 0.92)',
+          background: theme === 'dark' ? 'rgba(8, 10, 15, 0.94)' : 'rgba(247, 246, 242, 0.96)',
           backdropFilter: 'blur(24px)',
           WebkitBackdropFilter: 'blur(24px)',
           zIndex: 49,
@@ -276,28 +277,121 @@ export default function Navbar() {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          gap: '1.5rem',
-          padding: '2rem',
+          gap: '1.25rem',
+          padding: '2rem 1.5rem',
           opacity: mobileMenuOpen ? 1 : 0,
           pointerEvents: mobileMenuOpen ? 'auto' : 'none',
           transition: 'all 0.3s ease'
         }}
       >
-        {mobileNavItems.map((item) => (
-          <a
-            key={item.id}
-            href={`#${item.id}`}
-            onClick={(e) => handleNavClick(e, item.id)}
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '1.2rem',
+            width: '100%',
+            maxWidth: '320px'
+          }}
+        >
+          {mobileNavItems.map((item) => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              onClick={(e) => handleNavClick(e, item.id)}
+              style={{
+                fontSize: '1.25rem',
+                fontWeight: 700,
+                color: activeSection === item.id ? 'var(--brand-orange)' : 'var(--text-main)',
+                transition: 'color 0.2s ease',
+                textAlign: 'center',
+                padding: '0.2rem 1rem'
+              }}
+            >
+              {item.label}
+            </a>
+          ))}
+
+          {/* Subtle Divider */}
+          <div
             style={{
-              fontSize: '1.35rem',
-              fontWeight: 700,
-              color: activeSection === item.id ? 'var(--brand-orange)' : 'var(--text-main)',
-              transition: 'color 0.2s ease'
+              width: '80px',
+              height: '1px',
+              background: 'var(--border-subtle)',
+              margin: '0.6rem 0'
+            }}
+          />
+
+          {/* Mobile Actions: Language Switch & Theme Toggle */}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '0.85rem',
+              width: '100%'
             }}
           >
-            {item.label}
-          </a>
-        ))}
+            {/* Mobile Language Button */}
+            <button
+              onClick={toggleLanguage}
+              title={language === 'ar' ? 'Switch to English' : 'التحويل للعربية'}
+              aria-label={language === 'ar' ? 'Switch to English' : 'التحويل للعربية'}
+              style={{
+                background: theme === 'dark' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.04)',
+                border: '1px solid var(--border-medium)',
+                color: 'var(--text-main)',
+                height: '42px',
+                padding: '0 1.25rem',
+                borderRadius: 'var(--radius-full)',
+                cursor: 'pointer',
+                fontSize: '0.88rem',
+                fontWeight: 700,
+                fontFamily: language === 'ar' ? 'var(--font-en)' : 'var(--font-ar)',
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.5rem',
+                transition: 'all 0.2s ease',
+                boxShadow: '0 4px 14px rgba(0, 0, 0, 0.15)'
+              }}
+            >
+              <Globe size={17} style={{ color: 'var(--brand-orange)' }} />
+              <span>{language === 'ar' ? 'English' : 'عربي'}</span>
+            </button>
+
+            {/* Mobile Theme Toggle Button */}
+            <button
+              onClick={toggleTheme}
+              title={theme === 'dark' ? 'Switch to Light Mode' : 'التحويل للوضع الليلي'}
+              aria-label="Toggle Theme"
+              style={{
+                height: '42px',
+                padding: '0 1.15rem',
+                borderRadius: 'var(--radius-full)',
+                background: theme === 'dark' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.04)',
+                border: '1px solid var(--border-medium)',
+                color: 'var(--brand-orange)',
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.45rem',
+                cursor: 'pointer',
+                fontSize: '0.85rem',
+                fontWeight: 700,
+                transition: 'all 0.2s ease',
+                boxShadow: '0 4px 14px rgba(0, 0, 0, 0.15)'
+              }}
+            >
+              {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
+              <span style={{ color: 'var(--text-main)' }}>
+                {theme === 'dark'
+                  ? (language === 'ar' ? 'فاتح' : 'Light')
+                  : (language === 'ar' ? 'داكن' : 'Dark')}
+              </span>
+            </button>
+          </div>
+        </div>
       </div>
 
       <style>{`
@@ -305,7 +399,15 @@ export default function Navbar() {
           .desktop-nav {
             display: flex !important;
           }
+          .desktop-only-action {
+            display: inline-flex !important;
+          }
           .mobile-toggle {
+            display: none !important;
+          }
+        }
+        @media (max-width: 991px) {
+          .desktop-only-action {
             display: none !important;
           }
         }

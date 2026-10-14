@@ -48,6 +48,15 @@ export default function Certificates() {
   const dragDistance = useRef(0);
   const hasMovedRef = useRef(false);
 
+  // Responsive screen width tracking for 3D coverflow card spacing
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   // Total items in 3D carousel (always all 10 credentials)
   const totalItems = credentialsData.length;
 
@@ -201,15 +210,24 @@ export default function Certificates() {
               // Display up to 3 cards on the left and 3 cards on the right
               if (absOffset > 3) return null;
 
-              // Symmetrical 3D Coverflow positioning
+              // Symmetrical 3D Coverflow positioning with responsive spacing
+              const isMobile = windowWidth < 640;
+              const isTablet = windowWidth >= 640 && windowWidth < 992;
+
               let translateX = 0;
               if (offset !== 0) {
                 const dir = Math.sign(offset);
-                translateX = dir * (205 + (absOffset - 1) * 125);
+                if (isMobile) {
+                  translateX = dir * (115 + (absOffset - 1) * 65);
+                } else if (isTablet) {
+                  translateX = dir * (160 + (absOffset - 1) * 95);
+                } else {
+                  translateX = dir * (205 + (absOffset - 1) * 125);
+                }
               }
 
-              const translateZ = -absOffset * 95;
-              const rotateY = offset * -32; // Inward angle facing center
+              const translateZ = isMobile ? -absOffset * 55 : (isTablet ? -absOffset * 75 : -absOffset * 95);
+              const rotateY = isMobile ? offset * -26 : (isTablet ? offset * -29 : offset * -32);
               const scale = 1 - Math.min(absOffset * 0.12, 0.36);
               const opacity = Math.max(1 - absOffset * 0.20, 0.35);
               const zIndex = 30 - absOffset;

@@ -30,26 +30,10 @@ export default function Footer() {
       }}
     >
       <div className="container">
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-            gap: '3rem',
-            marginBottom: '3.5rem'
-          }}
-        >
+        <div className="footer-grid">
           
-          <div>
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.65rem',
-                fontWeight: 800,
-                fontSize: '1.35rem',
-                marginBottom: '1rem'
-              }}
-            >
+          <div className="footer-brand-col">
+            <div className="footer-brand-title">
               <img
                 src="/logo-orange.png"
                 alt="Lobna Saad Logo"
@@ -67,12 +51,12 @@ export default function Footer() {
               </span>
             </div>
 
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.94rem', lineHeight: 1.7, maxWidth: '320px' }}>
+            <p className="footer-brand-desc">
               {t('footer_desc')}
             </p>
           </div>
 
-          <div>
+          <div className="footer-info-col">
             <h4
               style={{
                 fontSize: '1.05rem',
@@ -83,21 +67,14 @@ export default function Footer() {
             >
               {isArabic ? 'معلومات سريعة' : 'Quick info'}
             </h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+            <div className="footer-info-list">
               {metaItems.map((item, i) => {
                 const Icon = item.icon;
                 return (
-                  <div
-                    key={i}
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '0.55rem',
-                      fontSize: '0.88rem',
-                      color: 'var(--text-muted)'
-                    }}
-                  >
-                    <Icon size={15} color="var(--brand-orange)" style={{ flexShrink: 0 }} />
+                  <div key={i} className="footer-info-item">
+                    <span className="footer-info-icon">
+                      <Icon size={16} color="var(--brand-orange)" />
+                    </span>
                     <span>{item.text}</span>
                   </div>
                 );
@@ -105,7 +82,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div>
+          <div className="footer-social-col">
             <h4
               style={{
                 fontSize: '1.05rem',
@@ -116,7 +93,7 @@ export default function Footer() {
             >
               {t('footer_socials')}
             </h4>
-            <div style={{ display: 'flex', gap: '0.65rem', flexWrap: 'wrap' }}>
+            <div className="footer-social-links">
               <a
                 href="https://www.linkedin.com/in/lobnaa-saltah-283b25350"
                 target="_blank"
@@ -181,6 +158,170 @@ export default function Footer() {
           <span>{t('footer_copy')}</span>
         </div>
       </div>
+
+      <style>{`
+        /* Mobile & Tablet (< 768px): Centered Layout */
+        .footer-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+          margin-bottom: 3rem;
+          text-align: center;
+          justify-items: center;
+        }
+
+        .footer-brand-col {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .footer-brand-title {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.65rem;
+          font-weight: 800;
+          font-size: 1.35rem;
+          margin-bottom: 1rem;
+        }
+
+        .footer-brand-desc {
+          color: var(--text-muted);
+          font-size: 0.94rem;
+          line-height: 1.7;
+          max-width: 340px;
+          margin: 0 auto;
+          text-align: center;
+        }
+
+        .footer-info-col {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .footer-info-list {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.65rem;
+          width: fit-content;
+          max-width: 100%;
+        }
+
+        .footer-info-item {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.65rem;
+          font-size: 0.88rem;
+          color: var(--text-muted);
+          text-align: start;
+        }
+
+        .footer-info-icon {
+          width: 20px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+        }
+
+        .footer-social-col {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .footer-social-links {
+          display: flex;
+          gap: 0.65rem;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        /* Desktop & Laptop (>= 768px): Original Layout Preserved */
+        @media (min-width: 768px) {
+          .footer-grid {
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3.5rem;
+            text-align: left;
+            justify-items: start;
+          }
+
+          [dir="rtl"] .footer-grid {
+            text-align: right;
+            justify-items: start;
+          }
+
+          .footer-brand-col {
+            align-items: flex-start;
+            text-align: left;
+          }
+
+          [dir="rtl"] .footer-brand-col {
+            align-items: flex-start;
+            text-align: right;
+          }
+
+          .footer-brand-title {
+            justify-content: flex-start;
+          }
+
+          [dir="rtl"] .footer-brand-title {
+            justify-content: flex-start;
+          }
+
+          .footer-brand-desc {
+            margin: 0;
+            text-align: left;
+          }
+
+          [dir="rtl"] .footer-brand-desc {
+            text-align: right;
+          }
+
+          .footer-info-col {
+            align-items: flex-start;
+            text-align: left;
+          }
+
+          [dir="rtl"] .footer-info-col {
+            align-items: flex-start;
+            text-align: right;
+          }
+
+          .footer-info-list {
+            align-items: flex-start;
+          }
+
+          [dir="rtl"] .footer-info-list {
+            align-items: flex-start;
+          }
+
+          .footer-social-col {
+            align-items: flex-start;
+            text-align: left;
+          }
+
+          [dir="rtl"] .footer-social-col {
+            align-items: flex-start;
+            text-align: right;
+          }
+
+          .footer-social-links {
+            justify-content: flex-start;
+          }
+
+          [dir="rtl"] .footer-social-links {
+            justify-content: flex-start;
+          }
+        }
+      `}</style>
     </footer>
   );
 }

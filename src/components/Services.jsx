@@ -55,10 +55,12 @@ export default function Services() {
   const colStartServices = [services[0], services[1]];
   const colEndServices = [services[2], services[3]];
 
-  const renderServiceCard = (srv) => {
+  const renderServiceCard = (srv, isStartCol, idx) => {
     const Icon = srv.icon;
+    const slideClass = isStartCol ? 'reveal-slide-left' : 'reveal-slide-right';
+    const delayClass = idx === 0 ? 'delay-150' : 'delay-300';
     return (
-      <div key={srv.num} className="service-node-card">
+      <div key={srv.num} className={`service-node-card reveal-on-scroll ${slideClass} ${delayClass} card-hover-fx`}>
         
         <div className="connector-bridge" />
 
@@ -163,7 +165,7 @@ export default function Services() {
     <section id="services" className="section-wrapper">
       <div className="container">
         
-        <div className="section-header">
+        <div className="section-header reveal-on-scroll reveal-slide-up">
           <div className="section-badge">
             <Sparkles size={16} />
             <span>{t('services_badge')}</span>
@@ -180,10 +182,10 @@ export default function Services() {
           <div className="services-layout-grid">
 
             <div className="services-col services-col-start">
-              {colStartServices.map(renderServiceCard)}
+              {colStartServices.map((srv, idx) => renderServiceCard(srv, true, idx))}
             </div>
 
-            <div className="services-hub-center">
+            <div className="services-hub-center reveal-on-scroll reveal-zoom-in delay-200">
               <div className="services-hub-glow" />
               <div className="services-hub-orbit" />
               <div className="services-hub-disc">
@@ -243,7 +245,7 @@ export default function Services() {
             </div>
 
             <div className="services-col services-col-end">
-              {colEndServices.map(renderServiceCard)}
+              {colEndServices.map((srv, idx) => renderServiceCard(srv, false, idx))}
             </div>
 
           </div>

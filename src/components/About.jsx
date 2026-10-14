@@ -33,7 +33,7 @@ export default function About() {
     <section id="about" className="section-wrapper" style={{ background: 'var(--bg-surface)' }}>
       <div className="container" style={{ maxWidth: '980px' }}>
 
-        <div className="section-header" style={{ marginBottom: '3rem' }}>
+        <div className="section-header reveal-on-scroll reveal-slide-up" style={{ marginBottom: '3rem' }}>
           <div className="section-badge">
             <Sparkles size={15} />
             <span>{t('about_badge')}</span>
@@ -50,9 +50,10 @@ export default function About() {
           }}
         >
 
-          <div>
+          <div className="reveal-on-scroll reveal-slide-left delay-100">
             
             <div
+              className="card-hover-fx"
               style={{
                 padding: '2rem',
                 borderRadius: 'var(--radius-xl)',
@@ -86,9 +87,11 @@ export default function About() {
           >
             {pillars.map((pillar, idx) => {
               const Icon = pillar.icon;
+              const delayClass = idx === 0 ? 'delay-150' : idx === 1 ? 'delay-250' : 'delay-350';
               return (
                 <div
                   key={idx}
+                  className={`reveal-on-scroll reveal-slide-right ${delayClass} card-hover-fx`}
                   style={{
                     display: 'flex',
                     alignItems: 'center',
@@ -96,13 +99,9 @@ export default function About() {
                     padding: '1.35rem 1.5rem',
                     borderRadius: 'var(--radius-lg)',
                     background: 'var(--bg-card)',
-                    border: '1px solid var(--border-subtle)',
-                    transition: 'border-color 0.2s ease'
+                    border: '1px solid var(--border-subtle)'
                   }}
-                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--brand-orange)'; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--border-subtle)'; }}
                 >
-                  
                   <div
                     style={{
                       width: '40px',

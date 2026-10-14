@@ -31,6 +31,49 @@ export default function IntroSplash({ onFinish }) {
       className={`intro-splash-container ${phase === 'exit' ? 'intro-exit' : ''}`}
       aria-hidden="true"
     >
+      <button
+        type="button"
+        onClick={(e) => {
+          e.stopPropagation();
+          onFinish();
+        }}
+        aria-label="Skip Intro"
+        style={{
+          position: 'absolute',
+          top: '1.25rem',
+          right: '1.25rem',
+          background: 'rgba(255, 255, 255, 0.08)',
+          border: '1px solid rgba(255, 255, 255, 0.18)',
+          color: 'rgba(255, 255, 255, 0.8)',
+          padding: '0.4rem 0.95rem',
+          borderRadius: '9999px',
+          fontSize: '0.78rem',
+          fontWeight: 700,
+          cursor: 'pointer',
+          zIndex: 100,
+          backdropFilter: 'blur(10px)',
+          WebkitBackdropFilter: 'blur(10px)',
+          transition: 'all 0.2s ease',
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: '0.35rem'
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.color = '#ff6a00';
+          e.currentTarget.style.borderColor = '#ff6a00';
+          e.currentTarget.style.background = 'rgba(255, 106, 0, 0.12)';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.color = 'rgba(255, 255, 255, 0.8)';
+          e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.18)';
+          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
+        }}
+      >
+        <span>تخطي</span>
+        <span>•</span>
+        <span>Skip ✕</span>
+      </button>
+
       <div className="intro-bg-ambient" />
 
       <div className="intro-stars-layer">
@@ -229,9 +272,22 @@ export default function IntroSplash({ onFinish }) {
           left: 50%;
           width: 360px;
           height: 360px;
-          transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%) scale(0.74);
+          transform-origin: center center;
           pointer-events: none;
           z-index: 5;
+        }
+
+        @media (min-width: 640px) {
+          .intro-circle-wrapper {
+            transform: translate(-50%, -50%) scale(0.85);
+          }
+        }
+
+        @media (min-width: 768px) {
+          .intro-circle-wrapper {
+            transform: translate(-50%, -50%) scale(1);
+          }
         }
 
         .intro-circle-svg {
@@ -348,12 +404,19 @@ export default function IntroSplash({ onFinish }) {
 
         .intro-logo-box {
           position: relative;
-          width: 160px;
-          height: 189px;
+          width: 145px;
+          height: 171px;
           display: flex;
           align-items: center;
           justify-content: center;
           z-index: 6;
+        }
+
+        @media (min-width: 640px) {
+          .intro-logo-box {
+            width: 165px;
+            height: 195px;
+          }
         }
 
         @media (min-width: 768px) {
@@ -411,7 +474,7 @@ export default function IntroSplash({ onFinish }) {
         }
 
         .intro-nameplate {
-          margin-top: 2.8rem;
+          margin-top: 3.8rem;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -421,6 +484,18 @@ export default function IntroSplash({ onFinish }) {
           z-index: 6;
         }
 
+        @media (min-width: 640px) {
+          .intro-nameplate {
+            margin-top: 4.2rem;
+          }
+        }
+
+        @media (min-width: 768px) {
+          .intro-nameplate {
+            margin-top: 4.6rem;
+          }
+        }
+
         .intro-nameplate.active-nameplate {
           opacity: 1;
           transform: translateY(0);
@@ -428,11 +503,19 @@ export default function IntroSplash({ onFinish }) {
 
         .intro-name-text {
           font-family: 'Cairo', sans-serif;
-          font-size: 0.92rem;
+          font-size: 0.85rem;
           font-weight: 800;
-          letter-spacing: 0.38em;
+          letter-spacing: 0.32em;
+          white-space: nowrap;
           color: #f8fafc;
           text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8), 0 0 16px rgba(255, 106, 0, 0.45);
+        }
+
+        @media (min-width: 768px) {
+          .intro-name-text {
+            font-size: 0.92rem;
+            letter-spacing: 0.38em;
+          }
         }
 
         .intro-name-line {
@@ -441,6 +524,43 @@ export default function IntroSplash({ onFinish }) {
           margin-top: 0.55rem;
           background: linear-gradient(90deg, transparent, #ff6a00, transparent);
           border-radius: 2px;
+        }
+
+        /* Mobile specific refinements for Intro animation */
+        @media (max-width: 640px) {
+          .intro-logo-box {
+            width: 140px;
+            height: 165px;
+          }
+          .intro-circle-wrapper {
+            transform: translate(-50%, -50%) scale(0.72) !important;
+          }
+          .intro-circle-path {
+            stroke-width: 2.2px !important;
+            filter: drop-shadow(0 0 6px rgba(255, 122, 0, 0.75)) !important;
+            opacity: 0.9 !important;
+          }
+          .intro-circle-svg.circle-drawing .intro-circle-path {
+            animation: drawFullCircle 1.35s cubic-bezier(0.25, 1, 0.35, 1) forwards !important;
+          }
+          .intro-dot-rotator.dot-drawing {
+            animation: rotateFullLoop 1.35s cubic-bezier(0.25, 1, 0.35, 1) forwards !important;
+          }
+          .intro-drawing-dot {
+            width: 10px !important;
+            height: 10px !important;
+            box-shadow:
+              0 0 10px 3px #ffc107,
+              0 0 20px 6px #ff7a00,
+              0 0 32px 8px rgba(255, 106, 0, 0.6) !important;
+          }
+          .intro-nameplate {
+            margin-top: 3.4rem !important;
+          }
+          .intro-name-text {
+            font-size: 0.86rem !important;
+            letter-spacing: 0.3em !important;
+          }
         }
       `}</style>
     </div>

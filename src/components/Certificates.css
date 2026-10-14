@@ -1316,3 +1316,110 @@
   }
 }
 
+/* ==========================================================================
+   Certificates 3D Slider Responsive Scaling for Tablet & Mobile
+   ========================================================================== */
+@media (min-width: 641px) and (max-width: 991px) {
+  .cert-section-wrapper {
+    padding: 4.5rem 0 5rem 0;
+  }
+  .cert-3d-slider-stage {
+    height: 410px;
+    perspective: 1000px;
+  }
+  .cert-3d-card {
+    width: 220px;
+    height: 330px;
+    left: calc(50% - 110px);
+    top: calc(50% - 165px);
+    border-radius: 18px;
+  }
+  .cert-3d-card-content {
+    padding: 0.85rem;
+  }
+  .cert-3d-title {
+    font-size: 0.86rem;
+  }
+  .cert-slider-btn {
+    width: 40px;
+    height: 40px;
+  }
+  .cert-slider-btn.prev {
+    left: 0.75rem;
+  }
+  .cert-slider-btn.next {
+    right: 0.75rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .cert-section-wrapper {
+    padding: 3.5rem 0 4rem 0;
+  }
+  .cert-3d-slider-stage {
+    height: 350px;
+    perspective: 850px;
+  }
+  .cert-3d-card {
+    width: 175px;
+    height: 280px;
+    left: calc(50% - 87.5px);
+    top: calc(50% - 140px);
+    border-radius: 16px;
+    box-shadow: 0 10px 24px -5px rgba(0, 0, 0, 0.5);
+  }
+  .cert-3d-card-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(10, 14, 23, 0.35) 0%,
+      rgba(10, 14, 23, 0.15) 25%,
+      rgba(10, 14, 23, 0.75) 50%,
+      rgba(10, 14, 23, 0.96) 80%,
+      rgba(10, 14, 23, 0.99) 100%
+    );
+  }
+  .cert-3d-badges-row {
+    padding: 0.5rem 0.6rem;
+  }
+  .cert-3d-rank-pill {
+    font-size: 0.62rem;
+    padding: 0.2rem 0.5rem;
+  }
+  .cert-3d-category-badge {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.45rem;
+  }
+  .cert-3d-card-content {
+    padding: 0.65rem 0.65rem 0.75rem 0.65rem;
+  }
+  .cert-3d-title {
+    font-size: 0.75rem;
+    line-height: 1.25;
+    margin-bottom: 0.3rem;
+  }
+  .cert-3d-role-sub {
+    font-size: 0.66rem;
+    margin-bottom: 0.25rem;
+  }
+  .cert-3d-actions-row {
+    margin-top: 0.35rem;
+    gap: 0.35rem;
+  }
+  .cert-3d-btn-preview,
+  .cert-3d-btn-detail {
+    padding: 0.28rem 0.5rem;
+    font-size: 0.66rem;
+    border-radius: var(--radius-sm);
+  }
+  .cert-slider-btn {
+    width: 34px;
+    height: 34px;
+  }
+  .cert-slider-btn.prev {
+    left: 0.25rem;
+  }
+  .cert-slider-btn.next {
+    right: 0.25rem;
+  }
+}
+

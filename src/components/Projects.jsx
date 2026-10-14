@@ -44,12 +44,10 @@ export default function Projects() {
   useEffect(() => {
     const handleResize = () => {
       const w = window.innerWidth;
-      if (w < 480) {
-        setRadius(340);
-      } else if (w < 768) {
-        setRadius(420);
-      } else if (w < 1024) {
-        setRadius(480);
+      if (w < 640) {
+        setRadius(290);
+      } else if (w < 992) {
+        setRadius(380);
       } else {
         setRadius(560);
       }

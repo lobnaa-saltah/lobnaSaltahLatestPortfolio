@@ -266,7 +266,7 @@ export default function Skills() {
       <div className="container" style={{ position: 'relative', zIndex: 5, maxWidth: '1180px' }}>
         
         {/* Section Header */}
-        <div className="section-header" style={{ marginBottom: '2.5rem' }}>
+        <div className="section-header reveal-on-scroll reveal-slide-up" style={{ marginBottom: '2.5rem' }}>
           <div className="section-badge">
             <Sparkles size={16} />
             <span>{t('skills_badge')}</span>
@@ -280,7 +280,7 @@ export default function Skills() {
         </div>
 
         {/* Unified Floating Filter Dock */}
-        <div className="skills-controls-bar">
+        <div className="skills-controls-bar reveal-on-scroll reveal-slide-up delay-100">
           <div className="skills-filter-group">
             {tabs.map((tab) => {
               const isActive = activeTab === tab.id;
@@ -307,12 +307,14 @@ export default function Skills() {
 
         {/* Modern Interactive Tech Cards Grid (Shows 3 initially or all on click) */}
         <div className="skills-grid">
-          {visibleSkills.map((skill) => {
+          {visibleSkills.map((skill, index) => {
             const IconComponent = skill.Icon;
+            const slideClass = index % 2 === 0 ? 'reveal-slide-left' : 'reveal-slide-right';
+            const delayClass = index % 3 === 0 ? 'delay-100' : index % 3 === 1 ? 'delay-200' : 'delay-300';
             return (
               <article
                 key={skill.id}
-                className="skill-card"
+                className={`skill-card reveal-on-scroll ${slideClass} ${delayClass} card-hover-fx`}
                 style={{
                   '--skill-accent': skill.accent,
                   '--skill-glow': skill.glow
@@ -378,7 +380,7 @@ export default function Skills() {
         )}
 
         {/* Expanding Horizons & Continuous Leveling-Up Banner */}
-        <div className="skills-horizon-card">
+        <div className="skills-horizon-card reveal-on-scroll reveal-slide-up delay-150">
           <div className="skills-horizon-header">
             <div className="skills-horizon-title-box">
               <span className="skills-horizon-pulse" />

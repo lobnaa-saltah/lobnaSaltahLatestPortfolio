@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap');
-
 :root {
   --color-orange-50: #fff7ed;
   --color-orange-100: #ffedd5;
@@ -580,5 +578,113 @@ h2.section-title,
 @media (max-width: 1023px) {
   .connector-bridge {
     display: none;
+  }
+}
+
+/* ==========================================================================
+   Professional Fluid Scroll-Reveal & Entrance Motion System
+   Hardware accelerated, quiet luxury cubic-bezier easing
+   ========================================================================== */
+
+/* Base hidden state */
+.reveal-on-scroll {
+  opacity: 0;
+  will-change: transform, opacity;
+  transition:
+    opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Directional entrance variations: Cards sliding in from the sides */
+.reveal-slide-left {
+  transform: translateX(-55px) scale(0.98);
+}
+
+.reveal-slide-right {
+  transform: translateX(55px) scale(0.98);
+}
+
+.reveal-slide-up {
+  transform: translateY(42px) scale(0.98);
+}
+
+.reveal-zoom-in {
+  transform: scale(0.9) translateY(24px);
+}
+
+/* Revealed active state */
+.reveal-on-scroll.is-revealed {
+  opacity: 1 !important;
+  transform: translate3d(0, 0, 0) scale(1) !important;
+}
+
+/* Staggered Delay Classes */
+.delay-100 { transition-delay: 0.1s !important; }
+.delay-150 { transition-delay: 0.15s !important; }
+.delay-200 { transition-delay: 0.2s !important; }
+.delay-250 { transition-delay: 0.25s !important; }
+.delay-300 { transition-delay: 0.3s !important; }
+.delay-350 { transition-delay: 0.35s !important; }
+.delay-400 { transition-delay: 0.4s !important; }
+.delay-500 { transition-delay: 0.5s !important; }
+
+/* Micro-interaction: Card Hover Elevation & Luxury Orange Glow */
+.card-hover-fx {
+  transition: transform 0.36s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.36s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.36s ease;
+}
+
+.card-hover-fx:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 18px 38px -8px rgba(0, 0, 0, 0.5),
+              0 0 24px -2px rgba(255, 106, 0, 0.22) !important;
+  border-color: rgba(255, 106, 0, 0.45) !important;
+}
+
+/* Subtle continuous drift for background orbs */
+@keyframes ambientDrift {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(18px, -18px) scale(1.06);
+  }
+}
+
+.animate-ambient-drift {
+  animation: ambientDrift 14s ease-in-out infinite;
+}
+
+/* Mobile optimizations: Snappy, prompt reveal without lag or horizontal scroll */
+@media (max-width: 768px) {
+  .reveal-on-scroll {
+    transition:
+      opacity 0.52s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.52s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+
+  .reveal-slide-left {
+    transform: translateY(22px) translateX(-14px) scale(0.98);
+  }
+  .reveal-slide-right {
+    transform: translateY(22px) translateX(14px) scale(0.98);
+  }
+  .reveal-slide-up {
+    transform: translateY(22px) scale(0.98);
+  }
+
+  /* Single column on mobile: instantaneous/snappy delays so cards reveal smoothly as scrolled */
+  .delay-100, .delay-150, .delay-200, .delay-250, .delay-300, .delay-350, .delay-400, .delay-500 {
+    transition-delay: 0.04s !important;
+  }
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }
