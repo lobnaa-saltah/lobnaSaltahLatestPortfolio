@@ -807,11 +807,13 @@
 @media (max-width: 991px) {
   .projects-controls-bar {
     flex-direction: column;
-    align-items: stretch;
-    gap: 0.85rem;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
   }
   .projects-filter-group {
     justify-content: center;
+    max-width: 100%;
   }
   .projects-view-toggle {
     align-self: center;
@@ -884,6 +886,53 @@
 }
 
 @media (max-width: 640px) {
+  /* Scaled Down Compact Controls for Mobile */
+  .projects-controls-bar {
+    gap: 0.55rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+  }
+  .projects-filter-group {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.22rem;
+    padding: 0.22rem 0.28rem;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .projects-filter-group::-webkit-scrollbar {
+    display: none;
+  }
+  .projects-filter-btn {
+    padding: 0.32rem 0.58rem;
+    font-size: 0.72rem;
+    gap: 0.28rem;
+  }
+  .projects-filter-count {
+    font-size: 0.60rem;
+    padding: 0.08rem 0.32rem;
+  }
+  .projects-view-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.22rem;
+    padding: 0.22rem 0.28rem;
+    max-width: 100%;
+  }
+  .projects-toggle-btn {
+    padding: 0.32rem 0.72rem;
+    font-size: 0.72rem;
+    gap: 0.32rem;
+  }
+  .projects-toggle-btn svg {
+    width: 13px;
+    height: 13px;
+  }
+
   .projects-cylinder-stage {
     height: 350px;
     perspective: 880px;
@@ -936,23 +985,30 @@
   }
   .cylinder-card-footer {
     padding-top: 0.5rem;
-    gap: 0.3rem;
+    gap: 0.35rem;
+    transform: none !important;
   }
   .cylinder-actions-group {
-    gap: 0.3rem;
+    gap: 0.35rem;
+    transform: none !important;
   }
   .cylinder-btn-live {
-    padding: 0.32rem 0.55rem;
-    font-size: 0.65rem;
-    gap: 0.25rem;
+    min-height: 34px;
+    padding: 0.35rem 0.65rem;
+    font-size: 0.68rem;
+    gap: 0.28rem;
+    transform: none !important;
   }
   .cylinder-btn-icon {
-    width: 27px;
-    height: 27px;
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    min-height: 34px;
+    transform: none !important;
   }
   .cylinder-btn-icon svg {
-    width: 13px;
-    height: 13px;
+    width: 15px;
+    height: 15px;
   }
   .cylinder-nav-arrow {
     width: 34px;
@@ -984,6 +1040,56 @@
   .projects-grid-btn-icon {
     width: 34px;
     height: 34px;
+  }
+}
+
+@media (max-width: 440px) {
+  .projects-controls-bar {
+    gap: 0.48rem;
+    margin-bottom: 1.35rem;
+  }
+  .projects-filter-group {
+    padding: 0.18rem 0.22rem;
+    gap: 0.15rem;
+    max-width: 100%;
+  }
+  .projects-filter-btn {
+    padding: 0.28rem 0.45rem;
+    font-size: 0.68rem;
+    gap: 0.22rem;
+  }
+  .projects-filter-count {
+    font-size: 0.58rem;
+    padding: 0.06rem 0.26rem;
+  }
+  .projects-view-toggle {
+    padding: 0.18rem 0.22rem;
+    gap: 0.16rem;
+  }
+  .projects-toggle-btn {
+    padding: 0.28rem 0.6rem;
+    font-size: 0.68rem;
+    gap: 0.25rem;
+  }
+  .projects-toggle-btn svg {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .projects-filter-btn {
+    padding: 0.24rem 0.35rem;
+    font-size: 0.63rem;
+    gap: 0.16rem;
+  }
+  .projects-filter-count {
+    font-size: 0.52rem;
+    padding: 0.04rem 0.22rem;
+  }
+  .projects-toggle-btn {
+    padding: 0.24rem 0.5rem;
+    font-size: 0.64rem;
   }
 }
 

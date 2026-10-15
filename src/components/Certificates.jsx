@@ -18,7 +18,6 @@ import {
   Maximize2,
   ChevronLeft,
   ChevronRight,
-  X,
   ArrowUpRight,
   ShieldCheck,
   FileText,
@@ -275,7 +274,7 @@ export default function Certificates() {
                   <div className="cert-3d-badges-row">
                     <span className={`cert-3d-pill-rank ${badgeClass}`}>
                       <Award size={12} />
-                      <span>{itemRankBadge.split('•')[0] || itemRankBadge}</span>
+                      <span>{itemRankBadge}</span>
                     </span>
                   </div>
 
@@ -370,14 +369,6 @@ export default function Certificates() {
                   </span>
                 )}
               </div>
-
-              <button
-                onClick={() => setSelectedDetailItem(null)}
-                className="cert-modal-close-btn"
-                aria-label={isArabic ? 'إغلاق' : 'Close'}
-              >
-                <X size={20} />
-              </button>
             </div>
 
             {/* Modal Body Scrollable */}

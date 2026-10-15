@@ -11,7 +11,6 @@ import {
   LayoutGrid,
   ChevronLeft,
   ChevronRight,
-  Star,
 } from 'lucide-react';
 import { Github } from './Icons';
 
@@ -383,13 +382,6 @@ export default function Projects() {
                           <span className="cylinder-pill-cat">
                             {project.category === 'webapps' ? t('projects_tab_webapps') : t('projects_tab_landing')}
                           </span>
-
-                          {project.featured && (
-                            <span className="cylinder-pill-feat">
-                              <Star size={10} fill="#ffffff" stroke="none" />
-                              <span>Featured</span>
-                            </span>
-                          )}
                         </div>
                       </div>
 
@@ -434,8 +426,7 @@ export default function Projects() {
                         {/* Action Buttons */}
                         <div
                           className="cylinder-card-footer"
-                          onMouseDown={(e) => e.stopPropagation()}
-                          onTouchStart={(e) => e.stopPropagation()}
+                          onClick={(e) => e.stopPropagation()}
                         >
                           <div className="cylinder-actions-group">
                             <a
@@ -444,10 +435,11 @@ export default function Projects() {
                               rel="noopener noreferrer"
                               className="cylinder-btn-live"
                               title={t('projects_view_live')}
-                              onMouseDown={(e) => e.stopPropagation()}
-                              onTouchStart={(e) => e.stopPropagation()}
                               onClick={(e) => {
                                 e.stopPropagation();
+                                if (hasMovedRef.current) {
+                                  e.preventDefault();
+                                }
                               }}
                             >
                               <span>{t('projects_view_live')}</span>
@@ -461,10 +453,11 @@ export default function Projects() {
                                 rel="noopener noreferrer"
                                 className="cylinder-btn-icon"
                                 title={t('projects_view_code')}
-                                onMouseDown={(e) => e.stopPropagation()}
-                                onTouchStart={(e) => e.stopPropagation()}
                                 onClick={(e) => {
                                   e.stopPropagation();
+                                  if (hasMovedRef.current) {
+                                    e.preventDefault();
+                                  }
                                 }}
                               >
                                 <Github size={15} />
@@ -478,8 +471,6 @@ export default function Projects() {
                               e.stopPropagation();
                               setSelectedProject(project);
                             }}
-                            onMouseDown={(e) => e.stopPropagation()}
-                            onTouchStart={(e) => e.stopPropagation()}
                             className="cylinder-btn-icon"
                             title={t('projects_details')}
                           >
@@ -554,12 +545,6 @@ export default function Projects() {
                       <span className="projects-grid-pill-cat">
                         {project.category === 'webapps' ? t('projects_tab_webapps') : t('projects_tab_landing')}
                       </span>
-                      {project.featured && (
-                        <span className="projects-grid-pill-feat">
-                          <Star size={11} fill="#ffffff" stroke="none" />
-                          <span>Featured</span>
-                        </span>
-                      )}
                     </div>
                   </div>
 
