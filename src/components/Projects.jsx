@@ -377,6 +377,7 @@ export default function Projects() {
                           decoding="async"
                           width="480"
                           height="270"
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 300px"
                           draggable="false"
                         />
 
@@ -549,6 +550,7 @@ export default function Projects() {
                       decoding="async"
                       width="480"
                       height="270"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 300px"
                     />
                     <div className="projects-grid-badges">
                       <span className="projects-grid-pill-cat">

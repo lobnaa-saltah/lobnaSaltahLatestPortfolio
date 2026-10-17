@@ -103,13 +103,14 @@ export default function Navbar() {
             <img
               src="/logo-orange.webp"
               alt="Lobna Saad Logo"
-              width="32"
+              width="27"
               height="32"
+              sizes="32px"
               fetchPriority="high"
               decoding="async"
               style={{
                 height: '32px',
-                width: '32px',
+                width: '27px',
                 objectFit: 'contain',
                 transition: 'transform 0.3s ease',
                 filter: 'drop-shadow(0 2px 8px var(--color-orange-glow))'

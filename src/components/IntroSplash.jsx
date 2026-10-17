@@ -111,7 +111,7 @@ export default function IntroSplash({ onFinish }) {
               clipPath="url(#clip-letter-l)"
             >
               <image
-                href="/logo-orange.png"
+                href="/logo-orange.webp"
                 x="0"
                 y="0"
                 width="382"
@@ -126,7 +126,7 @@ export default function IntroSplash({ onFinish }) {
               }`}
             >
               <image
-                href="/logo-orange.png"
+                href="/logo-orange.webp"
                 x="0"
                 y="0"
                 width="382"
