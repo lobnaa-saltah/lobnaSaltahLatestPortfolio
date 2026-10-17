@@ -38,15 +38,24 @@ export default function Projects() {
   const lastTimeRef = useRef(null);
 
   // Responsive Radius calculation (airy cylinder spacing to prevent card collision)
-  const [radius, setRadius] = useState(560);
+  const [isMobile, setIsMobile] = useState(() => (typeof window !== 'undefined' ? window.innerWidth < 640 : false));
+  const [radius, setRadius] = useState(() => {
+    if (typeof window === 'undefined') return 560;
+    const w = window.innerWidth;
+    if (w < 640) return 500;
+    if (w < 992) return 520;
+    return 560;
+  });
 
   useEffect(() => {
     const handleResize = () => {
       const w = window.innerWidth;
-      if (w < 640) {
-        setRadius(290);
+      const mobile = w < 640;
+      setIsMobile(mobile);
+      if (mobile) {
+        setRadius(500);
       } else if (w < 992) {
-        setRadius(380);
+        setRadius(520);
       } else {
         setRadius(560);
       }
@@ -315,7 +324,7 @@ export default function Projects() {
               <div
                 className={`projects-cylinder-rotor ${!isTransitioning ? 'is-free-dragging' : ''}`}
                 style={{
-                  transform: `translateZ(-${radius + 60}px) rotateY(${currentRotation}deg)`,
+                  transform: `translateZ(-${radius + (isMobile ? 35 : 60)}px) rotateY(${currentRotation}deg)`,
                 }}
               >
                 {cylinderSlots.map((slotIdx) => {
@@ -331,13 +340,19 @@ export default function Projects() {
                   const absRelAngle = Math.abs(relAngle);
 
                   // Visibility & Depth Culling:
-                  // Cards facing away (> 88 degrees) are smoothly hidden
-                  const isVisible = absRelAngle <= 88;
+                  // On mobile: strictly show the active card (0°) and immediate peeking neighbors (±30°). Hide cards beyond 42°
+                  // On desktop: show cards up to 82°
+                  const maxAngle = isMobile ? 42 : 82;
+                  const isVisible = absRelAngle <= maxAngle;
                   const isActive = absRelAngle < 15;
 
                   // Smooth opacity & blur falloff along the cylinder curve
-                  const opacity = isVisible ? Math.max(0.18, 1 - (absRelAngle / 88) * 0.58) : 0;
-                  const blurAmount = isActive ? 0 : Math.min(1.8, (absRelAngle / 88) * 1.6);
+                  const opacity = isVisible
+                    ? (isMobile
+                        ? (isActive ? 1 : Math.max(0.18, 0.42 - (absRelAngle / 42) * 0.24))
+                        : Math.max(0.2, 1 - (absRelAngle / 82) * 0.55))
+                    : 0;
+                  const blurAmount = isActive ? 0 : (isMobile ? 1.5 : Math.min(1.8, (absRelAngle / 82) * 1.6));
                   const zIndex = Math.round(100 - absRelAngle);
 
                   const currentDesc = project.description[language] || project.description.en;
