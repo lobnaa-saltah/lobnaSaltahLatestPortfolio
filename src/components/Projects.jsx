@@ -42,8 +42,8 @@ export default function Projects() {
   const [radius, setRadius] = useState(() => {
     if (typeof window === 'undefined') return 560;
     const w = window.innerWidth;
-    if (w < 640) return 500;
-    if (w < 992) return 520;
+    if (w < 640) return 310;
+    if (w < 992) return 420;
     return 560;
   });
 
@@ -53,9 +53,9 @@ export default function Projects() {
       const mobile = w < 640;
       setIsMobile(mobile);
       if (mobile) {
-        setRadius(500);
+        setRadius(310);
       } else if (w < 992) {
-        setRadius(520);
+        setRadius(420);
       } else {
         setRadius(560);
       }
@@ -324,7 +324,7 @@ export default function Projects() {
               <div
                 className={`projects-cylinder-rotor ${!isTransitioning ? 'is-free-dragging' : ''}`}
                 style={{
-                  transform: `translateZ(-${radius + (isMobile ? 35 : 60)}px) rotateY(${currentRotation}deg)`,
+                  transform: `translateZ(-${radius + (isMobile ? 25 : 60)}px) rotateY(${currentRotation}deg)`,
                 }}
               >
                 {cylinderSlots.map((slotIdx) => {
@@ -340,19 +340,19 @@ export default function Projects() {
                   const absRelAngle = Math.abs(relAngle);
 
                   // Visibility & Depth Culling:
-                  // On mobile: strictly show the active card (0°) and immediate peeking neighbors (±30°). Hide cards beyond 42°
+                  // On mobile: show cards up to 70° so the 3D circular revolving ring is clearly visible
                   // On desktop: show cards up to 82°
-                  const maxAngle = isMobile ? 42 : 82;
+                  const maxAngle = isMobile ? 70 : 82;
                   const isVisible = absRelAngle <= maxAngle;
                   const isActive = absRelAngle < 15;
 
                   // Smooth opacity & blur falloff along the cylinder curve
                   const opacity = isVisible
                     ? (isMobile
-                        ? (isActive ? 1 : Math.max(0.18, 0.42 - (absRelAngle / 42) * 0.24))
+                        ? (isActive ? 1 : Math.max(0.28, 0.72 - (absRelAngle / 70) * 0.44))
                         : Math.max(0.2, 1 - (absRelAngle / 82) * 0.55))
                     : 0;
-                  const blurAmount = isActive ? 0 : (isMobile ? 1.5 : Math.min(1.8, (absRelAngle / 82) * 1.6));
+                  const blurAmount = isActive ? 0 : (isMobile ? Math.min(1.2, (absRelAngle / 70) * 1.4) : Math.min(1.8, (absRelAngle / 82) * 1.6));
                   const zIndex = Math.round(100 - absRelAngle);
 
                   const currentDesc = project.description[language] || project.description.en;
