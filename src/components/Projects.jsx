@@ -40,11 +40,11 @@ export default function Projects() {
   // Responsive Radius calculation (airy cylinder spacing to prevent card collision)
   const [isMobile, setIsMobile] = useState(() => (typeof window !== 'undefined' ? window.innerWidth < 640 : false));
   const [radius, setRadius] = useState(() => {
-    if (typeof window === 'undefined') return 600;
+    if (typeof window === 'undefined') return 500;
     const w = window.innerWidth;
     if (w < 640) return 380;
-    if (w < 992) return 500;
-    return 600;
+    if (w < 992) return 450;
+    return 500;
   });
 
   useEffect(() => {
@@ -55,9 +55,9 @@ export default function Projects() {
       if (mobile) {
         setRadius(380);
       } else if (w < 992) {
-        setRadius(500);
+        setRadius(450);
       } else {
-        setRadius(600);
+        setRadius(500);
       }
     };
     handleResize();
@@ -324,7 +324,7 @@ export default function Projects() {
               <div
                 className={`projects-cylinder-rotor ${!isTransitioning ? 'is-free-dragging' : ''}`}
                 style={{
-                  transform: `translateZ(-${radius + (isMobile ? 30 : 50)}px) rotateY(${currentRotation}deg)`,
+                  transform: `translateZ(-${radius + (isMobile ? 30 : 40)}px) rotateY(${currentRotation}deg)`,
                 }}
               >
                 {cylinderSlots.map((slotIdx) => {
