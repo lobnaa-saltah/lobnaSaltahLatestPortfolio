@@ -111,6 +111,7 @@ export default function CredentialLightbox({
               rel="noopener noreferrer"
               className="cert-lightbox-icon-btn"
               title={isArabic ? 'فتح الصورة الأصلية' : 'Open Full Image'}
+              aria-label={isArabic ? 'فتح الصورة الأصلية' : 'Open Full Image'}
               onClick={(e) => e.stopPropagation()}
             >
               <ExternalLink size={18} />
@@ -120,7 +121,7 @@ export default function CredentialLightbox({
             onClick={onClose}
             className="cert-lightbox-icon-btn"
             title={isArabic ? 'إغلاق المعاينة (Esc)' : 'Close (Esc)'}
-            aria-label="Close modal"
+            aria-label={isArabic ? 'إغلاق المعاينة' : 'Close preview'}
           >
             <X size={20} />
           </button>
@@ -137,7 +138,7 @@ export default function CredentialLightbox({
               handlePrev();
             }}
             title={isArabic ? 'السابق' : 'Previous'}
-            aria-label="Previous image"
+            aria-label={isArabic ? 'السابق' : 'Previous image'}
           >
             {isRtl ? <ChevronRight size={26} /> : <ChevronLeft size={26} />}
           </button>
@@ -151,6 +152,7 @@ export default function CredentialLightbox({
             src={currentImage.url}
             alt={currentTitle || 'Credential Image'}
             className="cert-lightbox-img"
+            decoding="async"
           />
         </div>
 
@@ -162,7 +164,7 @@ export default function CredentialLightbox({
               handleNext();
             }}
             title={isArabic ? 'التالي' : 'Next'}
-            aria-label="Next image"
+            aria-label={isArabic ? 'التالي' : 'Next image'}
           >
             {isRtl ? <ChevronLeft size={26} /> : <ChevronRight size={26} />}
           </button>
@@ -171,7 +173,7 @@ export default function CredentialLightbox({
 
       {/* Bottom Info Bar */}
       <div className="cert-lightbox-bottom-bar" onClick={(e) => e.stopPropagation()}>
-        <h4 className="cert-lightbox-title">{currentTitle}</h4>
+        <h3 className="cert-lightbox-title">{currentTitle}</h3>
         {total > 1 && (
           <span className="cert-lightbox-counter">
             {isArabic ? `الصورة رقم ${currentIndex + 1} من إجمالي ${total} صور توثيقية` : `Image ${currentIndex + 1} of ${total} documented photos`}

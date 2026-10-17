@@ -74,8 +74,8 @@ export default function ProjectModal({ project, onClose }) {
             top: '1.25rem',
             right: isRtl ? 'auto' : '1.25rem',
             left: isRtl ? '1.25rem' : 'auto',
-            width: '40px',
-            height: '40px',
+            width: '48px',
+            height: '48px',
             borderRadius: '50%',
             background: 'var(--bg-elevated)',
             border: '1px solid var(--border-subtle)',
@@ -102,6 +102,10 @@ export default function ProjectModal({ project, onClose }) {
           <img
             src={project.image}
             alt={project.title}
+            loading="lazy"
+            decoding="async"
+            width="850"
+            height="340"
             style={{
               width: '100%',
               height: '100%',
@@ -219,7 +223,7 @@ export default function ProjectModal({ project, onClose }) {
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary"
-              style={{ padding: '0.75rem 1.65rem' }}
+              style={{ padding: '0.75rem 1.65rem', minHeight: '48px', display: 'inline-flex', alignItems: 'center' }}
             >
               <span>{t('projects_view_live')}</span>
               <ExternalLink size={17} />
@@ -231,7 +235,7 @@ export default function ProjectModal({ project, onClose }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-secondary"
-                style={{ padding: '0.75rem 1.65rem' }}
+                style={{ padding: '0.75rem 1.65rem', minHeight: '48px', display: 'inline-flex', alignItems: 'center' }}
               >
                 <Github size={17} />
                 <span>{t('projects_view_code')}</span>

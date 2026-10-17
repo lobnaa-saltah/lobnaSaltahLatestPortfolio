@@ -52,7 +52,7 @@ export const credentialsData = [
       ar: 'تم إتمام المسارين واعتماد الشهادات الرسمية',
       en: 'Dual Tracks Completed & Certified'
     },
-    primaryImage: '/credentials/01-depi/depiReactCertificate.jpeg',
+    primaryImage: '/credentials/01-depi/depiReactCertificate.webp',
     description: {
       ar: 'إتمام منحة رواد مصر الرقمية المرموقة تحت مظلة وزارة الاتصالات وتكنولوجيا المعلومات في مسارين متكاملين: مسار تطوير الواجهات الأمامية التفاعلية بتقنية React الحديثة (بالشراكة مع elharefa و NEXT و CTO Courses)، ومسار اللغة الإنجليزية للأعمال والتواصل المؤسسي (Round 4) بالتعاون مع SYE English Community. البرنامج معتمد رسمياً بشهادات إنجاز موثقة وملفات PDF أصلية.',
       en: 'Graduated from the prestigious Digital Egypt Pioneers Initiative (DEPI) under the Egyptian Ministry of CIT across two complementary tracks: Modern React Frontend Web Development (partnered with elharefa, NEXT & CTO Courses) and Business English Professional Communication (Round 4) delivered with SYE English Community, backed by verified official PDF credentials.'
@@ -96,7 +96,7 @@ export const credentialsData = [
           ar: 'رواد مصر الرقمية • elharefa و NEXT و CTO Courses',
           en: 'DEPI • elharefa, NEXT & CTO Courses'
         },
-        image: '/credentials/01-depi/depiReactCertificate.jpeg',
+        image: '/credentials/01-depi/depiReactCertificate.webp',
         pdfUrl: '/credentials/01-depi/Lobna Saad Salah IsmailDepiReactTrack.pdf'
       },
       {
@@ -109,7 +109,7 @@ export const credentialsData = [
           ar: 'وزارة الاتصالات وتكنولوجيا المعلومات ومؤسسة SYE English Community',
           en: 'Ministry of CIT & SYE English Community'
         },
-        image: '/credentials/01-depi/depiEnglishCertificate.jpeg',
+        image: '/credentials/01-depi/depiEnglishCertificate.webp',
         pdfUrl: '/credentials/01-depi/Lobna Saad SalahDEPIenglishCourse.pdf'
       }
     ]
@@ -155,7 +155,7 @@ export const credentialsData = [
       ar: 'إتمام التدريب والمساهمة في بناء 3 أنظمة حكومية حية',
       en: 'Completed & Contributed to 3 Live Government Systems'
     },
-    primaryImage: '/credentials/01-depi/lobnaPhoto2Egypt.jpeg',
+    primaryImage: '/credentials/01-depi/lobnaPhoto2Egypt.webp',
     description: {
       ar: 'تدريب عملي ميداني مكثف على مدار 8 أشهر داخل الإدارة العامة لنظم المعلومات والتحول الرقمي بديوان عام محافظة كفر الشيخ تحت رعاية نائب المحافظ د. عمرو البشبيشي. المساهمة الفاعلة في بناء وتطوير 3 أنظمة رقمية حية تخدم العمل الحكومي وتسهل الخدمات للمواطنين، والعمل بروح الفريق في قاعات الاجتماعات وصالات التحول الرقمي تحت شعار "Teamwork makes the dream work".',
       en: '8-month intensive on-site field training at the General Administration for Information Systems and Digital Transformation in Kafr El-Sheikh Governorate Diwan under the auspices of Deputy Governor Dr. Amr El-Beshbeshi. Contributed to designing and building 3 live digital government systems serving citizens, working closely with engineering leads and administrative directors.'
@@ -188,112 +188,112 @@ export const credentialsData = [
     ],
     gallery: [
       {
-        url: '/credentials/01-depi/lobnaPhoto2Egypt.jpeg',
+        url: '/credentials/01-depi/lobnaPhoto2Egypt.webp',
         title: {
           ar: 'قاعة المجلس التنفيذي بديوان عام المحافظة والعلم المصري',
           en: 'Executive Council Hall at the Governorate Diwan'
         }
       },
       {
-        url: '/credentials/01-depi/kfs.jpeg',
+        url: '/credentials/01-depi/kfs.webp',
         title: {
           ar: 'شعار ورؤية قاعة التدريب: Teamwork makes the dream work',
           en: 'Training Room Motto: Teamwork makes the dream work'
         }
       },
       {
-        url: '/credentials/01-depi/kfs1.jpeg',
+        url: '/credentials/01-depi/kfs1.webp',
         title: {
           ar: 'جلسات العمل البرمجي مع فريق الإدارة العامة لنظم المعلومات',
           en: 'Coding and sprint review sessions with the digital transformation team'
         }
       },
       {
-        url: '/credentials/01-depi/kfs2.jpeg',
+        url: '/credentials/01-depi/kfs2.webp',
         title: {
           ar: 'واجهة ديوان عام محافظة كفر الشيخ',
           en: 'Kafr El-Sheikh Governorate General Diwan'
         }
       },
       {
-        url: '/credentials/01-depi/kfs3.jpeg',
+        url: '/credentials/01-depi/kfs3.webp',
         title: {
           ar: 'قاعة الاجتماعات الرئيسية والمناقشات التقنية',
           en: 'Main Conference Hall during technical sprint planning'
         }
       },
       {
-        url: '/credentials/01-depi/kfs4.jpeg',
+        url: '/credentials/01-depi/kfs4.webp',
         title: {
           ar: 'مكتب العمل والأجهزة البرمجية بالديوان العام',
           en: 'Development workstation at the Governorate Diwan'
         }
       },
       {
-        url: '/credentials/01-depi/kfs5.jpeg',
+        url: '/credentials/01-depi/kfs5.webp',
         title: {
           ar: 'شاشات المتابعة التفاعلية لمشاريع المحافظة الرقمية',
           en: 'Interactive monitoring screens for digital governorate projects'
         }
       },
       {
-        url: '/credentials/01-depi/kfs6.jpeg',
+        url: '/credentials/01-depi/kfs6.webp',
         title: {
           ar: 'دروع التكريم والتميز لنائب المحافظ د. عمرو البشبيشي',
           en: 'Shields of honor & excellence with leadership'
         }
       },
       {
-        url: '/credentials/01-depi/kfs7.jpeg',
+        url: '/credentials/01-depi/kfs7.webp',
         title: {
           ar: 'منصة التدريب وقاعة المحاضرات التفاعلية بالديوان',
           en: 'Interactive training lecture hall at the diwan'
         }
       },
       {
-        url: '/credentials/01-depi/kfs8.jpeg',
+        url: '/credentials/01-depi/kfs8.webp',
         title: {
           ar: 'صورة تذكارية لفريق المتدربين داخل ديوان عام المحافظة',
           en: 'Commemorative photo of the training squad at the Diwan'
         }
       },
       {
-        url: '/credentials/01-depi/kfs9.jpeg',
+        url: '/credentials/01-depi/kfs9.webp',
         title: {
           ar: 'ورش العمل التقنية للتحول الرقمي',
           en: 'Digital transformation technical workshops'
         }
       },
       {
-        url: '/credentials/01-depi/kfs10.jpeg',
+        url: '/credentials/01-depi/kfs10.webp',
         title: {
           ar: 'النقاشات المشتركة وتبادل الخبرات مع الموجهين',
           en: 'Collaborative knowledge sharing with technical mentors'
         }
       },
       {
-        url: '/credentials/01-depi/kfs11.jpeg',
+        url: '/credentials/01-depi/kfs11.webp',
         title: {
           ar: 'لقطة تجمع فريق العمل أثناء تطوير الأنظمة',
           en: 'Team gathering during digital systems implementation'
         }
       },
       {
-        url: '/credentials/01-depi/kfs12.jpeg',
+        url: '/credentials/01-depi/kfs12.webp',
         title: {
           ar: 'استعراض النماذج الأولية لواجهات المستخدم بالديوان',
           en: 'Reviewing UI prototypes at the Governorate diwan'
         }
       },
       {
-        url: '/credentials/01-depi/kfs13.jpeg',
+        url: '/credentials/01-depi/kfs13.webp',
         title: {
           ar: 'أجواء التعاون والعمل الجماعي المثمر',
           en: 'Productive teamwork atmosphere'
         }
       },
       {
-        url: '/credentials/01-depi/kfs14.jpeg',
+        url: '/credentials/01-depi/kfs14.webp',
         title: {
           ar: 'التكريم والتقدير الرسمي لجهود المتدربين',
           en: 'Official recognition for trainees contributions'
@@ -359,24 +359,24 @@ export const credentialsData = [
       ar: 'التتويج بدرع التميز التذكاري وشهادة التقدير الرسمية في المؤتمر الدولي IC-SIT\'2026 المنظم بالتعاون مع فرع IEEE Egypt Joint Chapter بالإسكندرية، وذلك عن مشروع MobiFlow وهو نظام متقدم يعتمد على الذكاء الاصطناعي لإدارة حركة النقل والمواصلات الحضرية والتخفيف من الاختناقات المرورية.',
       en: 'Honored with the official trophy shield and Certificate of Achievement at the IC-SIT\'2026 International Conference organized by IEEE Egypt Joint Chapter in Alexandria for project MobiFlow — an AI-powered smart urban transportation and traffic management platform.'
     },
-    primaryImage: '/credentials/02-competitions/ic-sit.jpeg',
+    primaryImage: '/credentials/02-competitions/ic-sit.webp',
     gallery: [
       {
-        url: '/credentials/02-competitions/ic-sit.jpeg',
+        url: '/credentials/02-competitions/ic-sit.webp',
         title: {
           ar: 'شهادة التقدير الرسمية لمشروع MobiFlow من IEEE IC-SIT\'2026',
           en: 'Official Certificate of Achievement for MobiFlow from IEEE IC-SIT\'2026'
         }
       },
       {
-        url: '/credentials/02-competitions/ic-sit2.jpeg',
+        url: '/credentials/02-competitions/ic-sit2.webp',
         title: {
           ar: 'درع التميز والتكريم التذكاري للمشروع',
           en: 'Close-up of the Commemorative Award Shield'
         }
       },
       {
-        url: '/credentials/02-competitions/ic-sit3.jpeg',
+        url: '/credentials/02-competitions/ic-sit3.webp',
         title: {
           ar: 'فريق العمل أثناء حفل التكريم ومنصة العرض',
           en: 'Team presentation and official award ceremony'
@@ -422,17 +422,17 @@ export const credentialsData = [
       ar: 'شهادة تقدير وتميز عن مشروع "رُكْن (Rukn)" تحت شعار "مذاكرة أذكى....... تركيز أطول"، وهي منصة مبتكرة لتهيئة بيئة دراسية تفاعلية مدعومة بالذكاء الاصطناعي وتقنيات تنظيم الوقت وزيادة الإنتاجية للطلاب والباحثين، مع المشاركة في جناح المعرض التكنولوجي بالمنتدى.',
       en: 'Awarded Certificate of Appreciation for project "Rukn" (Smarter Study, Longer Focus) — an innovative productivity and focus environment that integrates AI tools, Pomodoro timers, and adaptive soundscapes for students and researchers, showcased at the university innovation expo.'
     },
-    primaryImage: '/credentials/02-competitions/rukn.jpeg',
+    primaryImage: '/credentials/02-competitions/rukn.webp',
     gallery: [
       {
-        url: '/credentials/02-competitions/rukn.jpeg',
+        url: '/credentials/02-competitions/rukn.webp',
         title: {
           ar: 'شهادة التقدير الرسمية لمشروع رُكْن من جامعة بنها الأهلية',
           en: 'Official Certificate of Appreciation for Rukn from BNU'
         }
       },
       {
-        url: '/credentials/02-competitions/events.jpeg',
+        url: '/credentials/02-competitions/events.webp',
         title: {
           ar: 'جناح عرض المشروع والمعرض التفاعلي بالمنتدى',
           en: 'Project exhibition booth at the INNOVENTURE Forum'
@@ -482,31 +482,31 @@ export const credentialsData = [
       ar: 'مشاركة قيادية بارزة ضمن النشاط الطلابي الرسمي لمايكروسوفت بجامعة كفر الشيخ، تضمنت حصد جائزة أفضل مشروع (Best Project Award) في مسار قواعد البيانات بتاريخ 23 فبراير 2025، والتتويج بجائزة أفضل عضو بالدفعة الثالثة (Best Member Award - TMP Batch 3)، بالإضافة إلى الحصول على شهادة إتمام برنامج الإرشاد التقني المعتمد (TMP) في قواعد البيانات بتاريخ 17 مايو 2025 وبطاقة التكريم التذكارية.',
       en: 'Triple honors earned within the official Microsoft Learn Student Ambassadors chapter: won the Best Project Award in the Databases track (Feb 23, 2025), selected as Best Member of TMP Batch 3, and successfully completed the rigorous Tech Mentorship Program (TMP) in Databases (May 17, 2025).'
     },
-    primaryImage: '/credentials/03-mlsa/bestProjectMLSA.jpeg',
+    primaryImage: '/credentials/03-mlsa/bestProjectMLSA.webp',
     gallery: [
       {
-        url: '/credentials/03-mlsa/bestProjectMLSA.jpeg',
+        url: '/credentials/03-mlsa/bestProjectMLSA.webp',
         title: {
           ar: 'شهادة جائزة أفضل مشروع في مسار قواعد البيانات (23/02/2025)',
           en: 'Best Project Award Certificate - Databases Track (23/02/2025)'
         }
       },
       {
-        url: '/credentials/03-mlsa/bestMemberMLSA.jpeg',
+        url: '/credentials/03-mlsa/bestMemberMLSA.webp',
         title: {
           ar: 'شهادة التميز كأفضل عضو بالدفعة الثالثة (Best Member - TMP Batch 3)',
           en: 'Best Member Award Certificate (TMP Batch 3)'
         }
       },
       {
-        url: '/credentials/03-mlsa/certificateMLSA.jpeg',
+        url: '/credentials/03-mlsa/certificateMLSA.webp',
         title: {
           ar: 'شهادة إتمام برنامج الإرشاد التقني (TMP) في قواعد البيانات (17/05/2025)',
           en: 'Tech Mentorship Program (TMP) Certificate of Completion (17/05/2025)'
         }
       },
       {
-        url: '/credentials/03-mlsa/quranMLSA.jpeg',
+        url: '/credentials/03-mlsa/quranMLSA.webp',
         title: {
           ar: 'بطاقة التقدير والتكريم التذكارية من مايكروسوفت',
           en: 'Commemorative Token Card of Honor from MSC'
@@ -552,10 +552,10 @@ export const credentialsData = [
       ar: 'شهادة إتمام وتقدير رسمية ممنوحة من إدارة فرع منظمة IEEE الطلابية بجامعة كفر الشيخ (IEEE Kafrelsheikh Student Branch) تقديراً للتفاني والعمل الجاد والالتزام المتميز كعضو فاعل بلجنة تطوير الواجهات الأمامية (Member of Front End Committee)، والمشاركة في ورش العمل البرمجية وتصميم الواجهات للمجتمع الطلابي.',
       en: 'Official Certificate of Completion awarded by IEEE Kafrelsheikh Student Branch in recognition of dedication, active engagement, and outstanding contribution throughout the track duration as a Member of the Front End Committee.'
     },
-    primaryImage: '/credentials/03-communities/ieee-kfs-frontend.jpeg',
+    primaryImage: '/credentials/03-communities/ieee-kfs-frontend.webp',
     gallery: [
       {
-        url: '/credentials/03-communities/ieee-kfs-frontend.jpeg',
+        url: '/credentials/03-communities/ieee-kfs-frontend.webp',
         title: {
           ar: 'شهادة إتمام مسار الواجهات الأمامية من فرع IEEE كفر الشيخ (Member of Front End Committee)',
           en: 'Certificate of Completion - Member of Front End Committee (IEEE KSB)'
@@ -604,38 +604,38 @@ export const credentialsData = [
       ar: 'شهادة شكر وتقدير رسمية ممنوحة من إدارة كلية الذكاء الاصطناعي بجامعة كفر الشيخ تقديراً للتميز والجهد الاستثنائي في بناء وتطوير "منصة مشاريع كلية الذكاء الاصطناعي"، لتكون المنصة الرقمية الموحدة لعرض وتوثيق وأرشفة مشاريع تخرج الطلاب وأبحاثهم التقنية، بإشراف الدكتورة مروة الصديق والمهندس عبد الرؤوف حواش.',
       en: 'Official Certificate of Appreciation awarded by the Faculty of Artificial Intelligence leadership at Kafr El-Sheikh University in recognition of outstanding technical contribution in designing and developing the "Faculty of AI Projects Platform", centralizing graduation projects and research archives.'
     },
-    primaryImage: '/credentials/04-academic/lobnaCertificate2.jpeg',
+    primaryImage: '/credentials/04-academic/lobnaCertificate2.webp',
     gallery: [
       {
-        url: '/credentials/04-academic/lobnaCertificate2.jpeg',
+        url: '/credentials/04-academic/lobnaCertificate2.webp',
         title: {
           ar: 'شهادة التقدير الرسمية لتطوير منصة مشاريع كلية الذكاء الاصطناعي (10 مايو 2026)',
           en: 'Official University Certificate of Appreciation for Faculty Projects Platform'
         }
       },
       {
-        url: '/credentials/04-academic/lobnaCertificate.jpeg',
+        url: '/credentials/04-academic/lobnaCertificate.webp',
         title: {
           ar: 'لحظة استلام شهادة التكريم أمام الحرم الجامعي ومبنى الكلية',
           en: 'Receiving the Certificate on the university campus'
         }
       },
       {
-        url: '/credentials/04-academic/ai.jpeg',
+        url: '/credentials/04-academic/ai.webp',
         title: {
           ar: 'الواجهة المعمارية لمبنى كلية الذكاء الاصطناعي الحديث - جامعة كفر الشيخ',
           en: 'Modern Faculty of AI Building Architecture'
         }
       },
       {
-        url: '/credentials/04-academic/kfsuniversity.jpeg',
+        url: '/credentials/04-academic/kfsuniversity.webp',
         title: {
           ar: 'بهو الكلية الداخلي وميدان منافسات الروبوتات والذكاء الاصطناعي',
           en: 'Faculty interior atrium & robotics competition arena'
         }
       },
       {
-        url: '/credentials/04-academic/roboticsStudentActivityMansoura.jpeg',
+        url: '/credentials/04-academic/roboticsStudentActivityMansoura.webp',
         title: {
           ar: 'شهادة تقدير في نشاط الروبوتات والتكنولوجيا الطلابية',
           en: 'Appreciation Certificate in Robotics & Tech Student Activities'
@@ -684,38 +684,38 @@ export const credentialsData = [
       ar: 'العمل كمدربة ومحاضرة في تطوير الواجهات الأمامية (Frontend Web Development) للأطفال لمدة 3 أشهر، تبسيط مفاهيم البرمجة وأسس الويب (HTML, CSS, JS) للأجيال الناشئة وتمكينهم من بناء أولى مواقعهم الإلكترونية وتنمية مهارات التفكير المنطقي، مع التكريم الرسمي بـ "درع التميز والعطاء" تقديراً للأثر الإيجابي والتفاني.',
       en: 'Instructed young learners in Frontend Web Development for 3 months at Geniuses Academy, simplifying core web concepts and empowering kids to code responsive pages. Honored by the academy leadership with the prestigious Crystal Shield of Excellence & Giving for inspiring pedagogy.'
     },
-    primaryImage: '/credentials/05-teaching/lobnaelsaeidDera1.jpeg',
+    primaryImage: '/credentials/05-teaching/lobnaelsaeidDera1.webp',
     gallery: [
       {
-        url: '/credentials/05-teaching/lobnaelsaeidDera1.jpeg',
+        url: '/credentials/05-teaching/lobnaelsaeidDera1.webp',
         title: {
           ar: 'درع التميز والعطاء الكريستالي من أكاديمية جينيس',
           en: 'Crystal Shield of Excellence & Giving from Geniuses Academy'
         }
       },
       {
-        url: '/credentials/05-teaching/geniusLobna.jpeg',
+        url: '/credentials/05-teaching/geniusLobna.webp',
         title: {
           ar: 'أثناء شرح وتدريس البرمجة للأطفال داخل معمل الأكاديمية',
           en: 'Teaching coding to kids inside the academy computer lab'
         }
       },
       {
-        url: '/credentials/05-teaching/lobnaGenius.jpeg',
+        url: '/credentials/05-teaching/lobnaGenius.webp',
         title: {
           ar: 'الاحتفال بتخرج الدفعة وتكريم المدربين',
           en: 'Instructors recognition & student graduation celebration'
         }
       },
       {
-        url: '/credentials/05-teaching/meAyaNada.jpeg',
+        url: '/credentials/05-teaching/meAyaNada.webp',
         title: {
           ar: 'فريق عمل ومدربات أكاديمية جينيس',
           en: 'Geniuses Academy instruction and mentoring team'
         }
       },
       {
-        url: '/credentials/05-teaching/lobnaNada.jpeg',
+        url: '/credentials/05-teaching/lobnaNada.webp',
         title: {
           ar: 'حفل تسليم الشهادات ومشاريع الأطفال البرمجية',
           en: 'Ceremony awarding certificates to proud young coders'
@@ -764,10 +764,10 @@ export const credentialsData = [
       ar: 'إتمام 60 ساعة تدريبية تطبيقية مكثفة في تحليل البيانات الاحترافي واستخراج الرؤى الذكية، شملت: لغة Python ومكتبات تحليل البيانات (Pandas & NumPy)، قواعد بيانات SQL Server وكتابة الاستعلامات المتقدمة، تصميم لوحات المعلومات التفاعلية بـ Power BI، تقنيات Microsoft Excel المتقدمة، ومقدمة تطبيقية في تعلم الآلة (Machine Learning).',
       en: 'Completed 60 comprehensive hands-on training hours in professional data analytics and business intelligence, covering Python for data processing (Pandas/NumPy), SQL Server query optimization, interactive Power BI dashboards, advanced Excel modeling, and foundational Machine Learning.'
     },
-    primaryImage: '/credentials/06-bootcamps/DataAnalysisCertificate.jpeg',
+    primaryImage: '/credentials/06-bootcamps/DataAnalysisCertificate.webp',
     gallery: [
       {
-        url: '/credentials/06-bootcamps/DataAnalysisCertificate.jpeg',
+        url: '/credentials/06-bootcamps/DataAnalysisCertificate.webp',
         title: {
           ar: 'شهادة إتمام معسكر تحليل البيانات الصيفي 2025 (60 ساعة)',
           en: 'Data Analysis Summer Camp Certificate of Completion (60 Hours)'
@@ -816,45 +816,45 @@ export const credentialsData = [
       ar: 'مشاركة فاعلة في فعاليات قمة تكني العالمية 2025 بمكتبة الإسكندرية، الحدث التكنولوجي الدولي الأبرز في منطقة حوض البحر الأبيض المتوسط للابتكار التكنولوجي والشركات الناشئة والاستثمار الرقمي، والتواصل مع رواد الأعمال ومؤسسي كبرى شركات التكنولوجيا وحضور الجلسات التقنية المتخصصة.',
       en: 'Active participation in Techne Summit 2025 held at the Bibliotheca Alexandrina — the flagship Mediterranean international gathering for technology innovation, venture capital, and startups, connecting with leading tech executives and discovering cutting-edge industry trends.'
     },
-    primaryImage: '/credentials/07-summits/techni0.jpeg',
+    primaryImage: '/credentials/07-summits/techni0.webp',
     gallery: [
       {
-        url: '/credentials/07-summits/techni0.jpeg',
+        url: '/credentials/07-summits/techni0.webp',
         title: {
           ar: 'قاعات وجلسات قمة تكني بمكتبة الإسكندرية',
           en: 'Techne Summit main stages at Bibliotheca Alexandrina'
         }
       },
       {
-        url: '/credentials/07-summits/techni1.jpeg',
+        url: '/credentials/07-summits/techni1.webp',
         title: {
           ar: 'معرض الشركات التكنولوجية الناشئة والابتكار',
           en: 'Tech startups innovation exhibition arena'
         }
       },
       {
-        url: '/credentials/07-summits/techni2.jpeg',
+        url: '/credentials/07-summits/techni2.webp',
         title: {
           ar: 'أجواء التفاعل والتواصل مع قادة التقنية',
           en: 'Networking with tech leaders and innovators'
         }
       },
       {
-        url: '/credentials/07-summits/techni3.jpeg',
+        url: '/credentials/07-summits/techni3.webp',
         title: {
           ar: 'العروض التقديمية وورش العمل المتخصصة',
           en: 'Keynote presentations and specialized technical panels'
         }
       },
       {
-        url: '/credentials/07-summits/techni4.jpeg',
+        url: '/credentials/07-summits/techni4.webp',
         title: {
           ar: 'المنصات التفاعلية داخل مكتبة الإسكندرية',
           en: 'Interactive demo platforms at the Bibliotheca'
         }
       },
       {
-        url: '/credentials/07-summits/techni5.jpeg',
+        url: '/credentials/07-summits/techni5.webp',
         title: {
           ar: 'صورة تذكارية لفعاليات ختام القمة',
           en: 'Commemorative moment at the summit closing sessions'

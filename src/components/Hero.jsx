@@ -130,9 +130,13 @@ export default function Hero() {
                 }}
               >
                 <img
-                  src="/lobnaPhoto.jpeg"
+                  src="/lobnaPhoto.webp"
                   alt=""
                   aria-hidden="true"
+                  width="360"
+                  height="420"
+                  fetchPriority="high"
+                  decoding="async"
                   style={{
                     position: 'absolute',
                     inset: '-20px',
@@ -147,8 +151,12 @@ export default function Hero() {
                 />
 
                 <img
-                  src="/lobnaPhoto.jpeg"
-                  alt="Lobna Saad"
+                  src="/lobnaPhoto.webp"
+                  alt="Lobna Saad - Frontend Developer"
+                  width="360"
+                  height="420"
+                  fetchPriority="high"
+                  decoding="async"
                   style={{
                     position: 'relative',
                     width: '100%',

@@ -264,6 +264,9 @@ export default function Certificates() {
                     alt={itemTitle}
                     className="cert-3d-card-img"
                     loading="lazy"
+                    decoding="async"
+                    width="420"
+                    height="480"
                     draggable="false"
                   />
 
@@ -445,14 +448,14 @@ export default function Certificates() {
                               }
                               title={isArabic ? 'انقر لتكبير الشهادة بملء الشاشة' : 'Click to inspect in full-screen'}
                             >
-                              <img src={cert.image} alt={certTitle} loading="lazy" />
+                              <img src={cert.image} alt={certTitle} loading="lazy" decoding="async" width="450" height="320" />
                               <div className="cert-frame-img-overlay">
                                 <Eye size={18} />
                                 <span>{isArabic ? 'معاينة الشهادة كاملة بملء الشاشة' : 'View Full Certificate'}</span>
                               </div>
                             </div>
 
-                            <h4 className="cert-frame-title">{certTitle}</h4>
+                            <h3 className="cert-frame-title">{certTitle}</h3>
                             <p className="cert-frame-issuer">{certIssuer}</p>
                           </div>
 
@@ -509,6 +512,9 @@ export default function Certificates() {
                         src={selectedDetailItem.gallery[activeGovPhotoIndex]?.url}
                         alt="Kafr El-Sheikh Governorate Fieldwork"
                         loading="lazy"
+                        decoding="async"
+                        width="560"
+                        height="380"
                       />
                       <div className="cert-gov-badge-counter">
                         <Maximize2 size={12} />
@@ -541,7 +547,7 @@ export default function Certificates() {
                               onClick={() => setActiveGovPhotoIndex(gIdx)}
                               title={gImg.title[language] || gImg.title.ar}
                             >
-                              <img src={gImg.url} alt={`Thumbnail ${gIdx + 1}`} loading="lazy" />
+                              <img src={gImg.url} alt={`Thumbnail ${gIdx + 1}`} loading="lazy" decoding="async" width="90" height="90" />
                             </div>
                           );
                         })}
@@ -596,7 +602,7 @@ export default function Certificates() {
                           title={isArabic ? 'انقر للمعاينة عالية الدقة' : 'Click to inspect in high-res'}
                         >
                           <div className="cert-modal-gallery-img-box">
-                            <img src={imgItem.url} alt={imgTitle} loading="lazy" />
+                            <img src={imgItem.url} alt={imgTitle} loading="lazy" decoding="async" width="380" height="260" />
                             <div className="cert-modal-gallery-img-overlay">
                               <Eye size={16} />
                               <span>{isArabic ? 'معاينة مكبرة' : 'Preview'}</span>

@@ -41,20 +41,20 @@
   --border-accent: rgba(255, 106, 0, 0.4);
   --border-glow: rgba(255, 106, 0, 0.3);
 
-  --text-main: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-muted: #94a3b8;
-  --text-faint: #64748b;
+  --text-main: #f9fafb;
+  --text-secondary: #f3f4f6;
+  --text-muted: #e5e7eb;
+  --text-faint: #9ca3af;
 
-  --brand-orange: #ff6a00;
-  --brand-orange-light: #ff8533;
-  --brand-orange-hover: #ff791a;
-  --brand-gradient: linear-gradient(135deg, #ff6a00 0%, #ff8c38 50%, #f59e0b 100%);
-  --brand-gradient-subtle: linear-gradient(135deg, rgba(255, 106, 0, 0.15) 0%, rgba(245, 158, 11, 0.05) 100%);
+  --brand-orange: #ff7a1a;
+  --brand-orange-light: #ffa14d;
+  --brand-orange-hover: #ff8c33;
+  --brand-gradient: linear-gradient(135deg, #ff7a1a 0%, #ff9838 50%, #f59e0b 100%);
+  --brand-gradient-subtle: linear-gradient(135deg, rgba(255, 122, 26, 0.16) 0%, rgba(245, 158, 11, 0.06) 100%);
 
   --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
-  --shadow-hover: 0 20px 40px -15px rgba(255, 106, 0, 0.25);
-  --glow-orb: radial-gradient(circle, rgba(255, 106, 0, 0.12) 0%, rgba(255, 106, 0, 0) 70%);
+  --shadow-hover: 0 20px 40px -15px rgba(255, 122, 26, 0.28);
+  --glow-orb: radial-gradient(circle, rgba(255, 122, 26, 0.14) 0%, rgba(255, 122, 26, 0) 70%);
 }
 
 [data-theme="light"] {
@@ -67,19 +67,19 @@
 
   --border-subtle: rgba(0, 0, 0, 0.07);
   --border-medium: rgba(0, 0, 0, 0.12);
-  --border-accent: rgba(228, 91, 0, 0.45);
-  --border-glow: rgba(228, 91, 0, 0.2);
+  --border-accent: rgba(194, 65, 12, 0.45);
+  --border-glow: rgba(194, 65, 12, 0.2);
 
   --text-main: #0f172a;
-  --text-secondary: #334155;
-  --text-muted: #64748b;
-  --text-faint: #94a3b8;
+  --text-secondary: #1e293b;
+  --text-muted: #334155;
+  --text-faint: #475569;
 
-  --brand-orange: #e45b00;
-  --brand-orange-light: #f97316;
-  --brand-orange-hover: #c2410c;
-  --brand-gradient: linear-gradient(135deg, #e45b00 0%, #f97316 50%, #d97706 100%);
-  --brand-gradient-subtle: linear-gradient(135deg, rgba(228, 91, 0, 0.12) 0%, rgba(217, 119, 6, 0.04) 100%);
+  --brand-orange: #c2410c;
+  --brand-orange-light: #ea580c;
+  --brand-orange-hover: #9a3412;
+  --brand-gradient: linear-gradient(135deg, #c2410c 0%, #ea580c 50%, #b45309 100%);
+  --brand-gradient-subtle: linear-gradient(135deg, rgba(194, 65, 12, 0.12) 0%, rgba(180, 83, 9, 0.04) 100%);
 
   --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
   --shadow-hover: 0 20px 40px -15px rgba(228, 91, 0, 0.18);
@@ -240,6 +240,7 @@ h2.section-title,
   justify-content: center;
   gap: 0.65rem;
   padding: 0.85rem 1.85rem;
+  min-height: 48px;
   font-size: 1rem;
   font-weight: 600;
   border-radius: var(--radius-full);

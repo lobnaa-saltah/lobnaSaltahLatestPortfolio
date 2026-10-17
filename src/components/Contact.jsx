@@ -120,6 +120,7 @@ export default function Contact() {
             <form onSubmit={handleTelegramSubmit}>
               <div style={{ marginBottom: '1.5rem' }}>
                 <label
+                  htmlFor="contact-name"
                   style={{
                     display: 'block',
                     fontSize: '0.88rem',
@@ -131,6 +132,8 @@ export default function Contact() {
                   {t('contact_label_name')} *
                 </label>
                 <input
+                  id="contact-name"
+                  name="name"
                   type="text"
                   required
                   value={formData.name}
@@ -154,6 +157,7 @@ export default function Contact() {
 
               <div style={{ marginBottom: '1.5rem' }}>
                 <label
+                  htmlFor="contact-email"
                   style={{
                     display: 'block',
                     fontSize: '0.88rem',
@@ -165,6 +169,8 @@ export default function Contact() {
                   {t('contact_label_email')}
                 </label>
                 <input
+                  id="contact-email"
+                  name="email"
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -187,6 +193,7 @@ export default function Contact() {
 
               <div style={{ marginBottom: '1.5rem' }}>
                 <label
+                  htmlFor="contact-subject"
                   style={{
                     display: 'block',
                     fontSize: '0.88rem',
@@ -198,6 +205,8 @@ export default function Contact() {
                   {t('contact_label_subject')}
                 </label>
                 <input
+                  id="contact-subject"
+                  name="subject"
                   type="text"
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
@@ -220,6 +229,7 @@ export default function Contact() {
 
               <div style={{ marginBottom: '2rem' }}>
                 <label
+                  htmlFor="contact-message"
                   style={{
                     display: 'block',
                     fontSize: '0.88rem',
@@ -231,6 +241,8 @@ export default function Contact() {
                   {t('contact_label_msg')} *
                 </label>
                 <textarea
+                  id="contact-message"
+                  name="message"
                   rows={4}
                   required
                   value={formData.message}

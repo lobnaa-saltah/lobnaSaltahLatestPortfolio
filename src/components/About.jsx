@@ -120,7 +120,7 @@ export default function About() {
                   </div>
 
                   <div style={{ minWidth: 0 }}>
-                    <div
+                    <h3
                       style={{
                         fontSize: '0.97rem',
                         fontWeight: 650,
@@ -129,7 +129,7 @@ export default function About() {
                       }}
                     >
                       {pillar.title}
-                    </div>
+                    </h3>
                     <div
                       style={{
                         fontSize: '0.85rem',

@@ -374,6 +374,9 @@ export default function Projects() {
                           alt={project.title}
                           className="cylinder-card-img"
                           loading="lazy"
+                          decoding="async"
+                          width="480"
+                          height="270"
                           draggable="false"
                         />
 
@@ -435,10 +438,11 @@ export default function Projects() {
                               rel="noopener noreferrer"
                               className="cylinder-btn-live"
                               title={t('projects_view_live')}
+                              aria-label={`${t('projects_view_live')} - ${project.title}`}
                               onClick={(e) => {
                                 e.stopPropagation();
                                 if (hasMovedRef.current) {
-                                  e.preventDefault();
+                                   e.preventDefault();
                                 }
                               }}
                             >
@@ -453,6 +457,7 @@ export default function Projects() {
                                 rel="noopener noreferrer"
                                 className="cylinder-btn-icon"
                                 title={t('projects_view_code')}
+                                aria-label={`${t('projects_view_code')} - ${project.title}`}
                                 onClick={(e) => {
                                   e.stopPropagation();
                                   if (hasMovedRef.current) {
@@ -473,6 +478,7 @@ export default function Projects() {
                             }}
                             className="cylinder-btn-icon"
                             title={t('projects_details')}
+                            aria-label={`${t('projects_details')} - ${project.title}`}
                           >
                             <Info size={16} />
                           </button>
@@ -540,6 +546,9 @@ export default function Projects() {
                       alt={project.title}
                       className="projects-grid-img"
                       loading="lazy"
+                      decoding="async"
+                      width="480"
+                      height="270"
                     />
                     <div className="projects-grid-badges">
                       <span className="projects-grid-pill-cat">
@@ -579,6 +588,7 @@ export default function Projects() {
                           rel="noopener noreferrer"
                           className="projects-grid-btn-live"
                           title={t('projects_view_live')}
+                          aria-label={`${t('projects_view_live')} - ${project.title}`}
                         >
                           <span>{t('projects_view_live')}</span>
                           <ArrowUpRight size={15} />
@@ -591,6 +601,7 @@ export default function Projects() {
                             rel="noopener noreferrer"
                             className="projects-grid-btn-icon"
                             title={t('projects_view_code')}
+                            aria-label={`${t('projects_view_code')} - ${project.title}`}
                           >
                             <Github size={16} />
                           </a>
@@ -601,6 +612,7 @@ export default function Projects() {
                         onClick={() => setSelectedProject(project)}
                         className="projects-grid-btn-icon"
                         title={t('projects_details')}
+                        aria-label={`${t('projects_details')} - ${project.title}`}
                       >
                         <Info size={17} />
                       </button>

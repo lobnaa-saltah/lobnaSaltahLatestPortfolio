@@ -118,7 +118,7 @@ export default function Services() {
           </h3>
           <p
             style={{
-              color: '#94a3b8',
+              color: 'var(--text-secondary)',
               fontSize: '0.83rem',
               lineHeight: 1.52
             }}

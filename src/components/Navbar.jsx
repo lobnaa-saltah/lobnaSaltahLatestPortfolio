@@ -101,11 +101,15 @@ export default function Navbar() {
             }}
           >
             <img
-              src="/logo-orange.png"
+              src="/logo-orange.webp"
               alt="Lobna Saad Logo"
+              width="32"
+              height="32"
+              fetchPriority="high"
+              decoding="async"
               style={{
                 height: '32px',
-                width: 'auto',
+                width: '32px',
                 objectFit: 'contain',
                 transition: 'transform 0.3s ease',
                 filter: 'drop-shadow(0 2px 8px var(--color-orange-glow))'
@@ -124,7 +128,7 @@ export default function Navbar() {
             style={{
               display: 'none',
               alignItems: 'center',
-              gap: '2.5rem'
+              gap: '1.5rem'
             }}
             className="desktop-nav"
           >
@@ -141,7 +145,10 @@ export default function Navbar() {
                     fontWeight: isActive ? 700 : 500,
                     color: isActive ? 'var(--brand-orange)' : 'var(--text-secondary)',
                     transition: 'color 0.2s ease',
-                    padding: '0.4rem 0'
+                    minHeight: '48px',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    padding: '0 0.5rem'
                   }}
                   onMouseEnter={(e) => {
                     if (!isActive) e.currentTarget.style.color = 'var(--text-main)';
@@ -182,12 +189,12 @@ export default function Navbar() {
                 background: 'transparent',
                 border: '1px solid var(--border-subtle)',
                 color: 'var(--text-secondary)',
-                height: '36px',
+                height: '48px',
                 minWidth: '58px',
                 padding: '0 0.85rem',
                 borderRadius: 'var(--radius-full)',
                 cursor: 'pointer',
-                fontSize: language === 'ar' ? '0.82rem' : '0.88rem',
+                fontSize: language === 'ar' ? '0.85rem' : '0.9rem',
                 fontWeight: 700,
                 letterSpacing: 'normal',
                 fontFamily: language === 'ar' ? 'var(--font-en)' : 'var(--font-ar)',
@@ -215,7 +222,7 @@ export default function Navbar() {
                   textAlign: 'center',
                   lineHeight: 1,
                   position: 'relative',
-                  top: language === 'ar' ? '0px' : '-2px'
+                  top: language === 'ar' ? '0px' : '-1px'
                 }}
               >
                 {language === 'ar' ? 'EN' : 'عربي'}
@@ -225,29 +232,31 @@ export default function Navbar() {
             <button
               onClick={toggleTheme}
               className="desktop-only-action"
-              title={theme === 'dark' ? 'Switch to Light Mode' : 'التحويل للوضع الليلي'}
+              title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+              aria-label={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
               style={{
-                width: '36px',
-                height: '36px',
+                width: '48px',
+                height: '48px',
                 borderRadius: '50%',
                 background: 'transparent',
                 border: '1px solid var(--border-subtle)',
                 color: 'var(--text-secondary)',
                 alignItems: 'center',
                 justifyContent: 'center',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                transition: 'all 0.2s ease'
               }}
             >
-              {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
+              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
             </button>
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="mobile-toggle"
-              aria-label="Toggle Navigation"
+              aria-label={mobileMenuOpen ? 'Close Menu' : 'Open Menu'}
               style={{
-                width: '38px',
-                height: '38px',
+                width: '48px',
+                height: '48px',
                 borderRadius: '50%',
                 background: 'transparent',
                 border: '1px solid var(--border-subtle)',
@@ -258,7 +267,7 @@ export default function Navbar() {
                 cursor: 'pointer'
               }}
             >
-              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
 
@@ -305,7 +314,11 @@ export default function Navbar() {
                 color: activeSection === item.id ? 'var(--brand-orange)' : 'var(--text-main)',
                 transition: 'color 0.2s ease',
                 textAlign: 'center',
-                padding: '0.2rem 1rem'
+                padding: '0.45rem 1.25rem',
+                minHeight: '48px',
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center'
               }}
             >
               {item.label}
@@ -341,7 +354,7 @@ export default function Navbar() {
                 background: theme === 'dark' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.04)',
                 border: '1px solid var(--border-medium)',
                 color: 'var(--text-main)',
-                height: '42px',
+                height: '48px',
                 padding: '0 1.25rem',
                 borderRadius: 'var(--radius-full)',
                 cursor: 'pointer',
@@ -356,17 +369,17 @@ export default function Navbar() {
                 boxShadow: '0 4px 14px rgba(0, 0, 0, 0.15)'
               }}
             >
-              <Globe size={17} style={{ color: 'var(--brand-orange)' }} />
+              <Globe size={18} style={{ color: 'var(--brand-orange)' }} />
               <span>{language === 'ar' ? 'English' : 'عربي'}</span>
             </button>
 
             {/* Mobile Theme Toggle Button */}
             <button
               onClick={toggleTheme}
-              title={theme === 'dark' ? 'Switch to Light Mode' : 'التحويل للوضع الليلي'}
-              aria-label="Toggle Theme"
+              title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+              aria-label={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
               style={{
-                height: '42px',
+                height: '48px',
                 padding: '0 1.15rem',
                 borderRadius: 'var(--radius-full)',
                 background: theme === 'dark' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.04)',
@@ -383,7 +396,7 @@ export default function Navbar() {
                 boxShadow: '0 4px 14px rgba(0, 0, 0, 0.15)'
               }}
             >
-              {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
+              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
               <span style={{ color: 'var(--text-main)' }}>
                 {theme === 'dark'
                   ? (language === 'ar' ? 'فاتح' : 'Light')

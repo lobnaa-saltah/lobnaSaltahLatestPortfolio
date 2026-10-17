@@ -35,11 +35,15 @@ export default function Footer() {
           <div className="footer-brand-col">
             <div className="footer-brand-title">
               <img
-                src="/logo-orange.png"
+                src="/logo-orange.webp"
                 alt="Lobna Saad Logo"
+                width="32"
+                height="32"
+                loading="lazy"
+                decoding="async"
                 style={{
                   height: '32px',
-                  width: 'auto',
+                  width: '32px',
                   objectFit: 'contain',
                   filter: 'drop-shadow(0 2px 8px var(--color-orange-glow))'
                 }}
@@ -57,7 +61,7 @@ export default function Footer() {
           </div>
 
           <div className="footer-info-col">
-            <h4
+            <h3
               style={{
                 fontSize: '1.05rem',
                 fontWeight: 700,
@@ -66,7 +70,7 @@ export default function Footer() {
               }}
             >
               {isArabic ? 'معلومات سريعة' : 'Quick info'}
-            </h4>
+            </h3>
             <div className="footer-info-list">
               {metaItems.map((item, i) => {
                 const Icon = item.icon;
@@ -83,7 +87,7 @@ export default function Footer() {
           </div>
 
           <div className="footer-social-col">
-            <h4
+            <h3
               style={{
                 fontSize: '1.05rem',
                 fontWeight: 700,
@@ -92,17 +96,18 @@ export default function Footer() {
               }}
             >
               {t('footer_socials')}
-            </h4>
-            <div className="footer-social-links">
+            </h3>
+            <div className="footer-social-links" style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
               <a
                 href="https://www.linkedin.com/in/lobnaa-saltah-283b25350"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-secondary"
-                style={{ width: '42px', height: '42px', padding: 0, borderRadius: '50%' }}
+                style={{ width: '48px', height: '48px', minWidth: '48px', minHeight: '48px', padding: 0, borderRadius: '50%' }}
                 title="LinkedIn"
+                aria-label="LinkedIn Profile"
               >
-                <Linkedin size={17} />
+                <Linkedin size={18} />
               </a>
 
               <a
@@ -110,10 +115,11 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-secondary"
-                style={{ width: '42px', height: '42px', padding: 0, borderRadius: '50%' }}
+                style={{ width: '48px', height: '48px', minWidth: '48px', minHeight: '48px', padding: 0, borderRadius: '50%' }}
                 title="GitHub Main"
+                aria-label="GitHub Profile"
               >
-                <Github size={17} />
+                <Github size={18} />
               </a>
 
               <a
@@ -121,10 +127,11 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-secondary"
-                style={{ width: '42px', height: '42px', padding: 0, borderRadius: '50%' }}
+                style={{ width: '48px', height: '48px', minWidth: '48px', minHeight: '48px', padding: 0, borderRadius: '50%' }}
                 title="WhatsApp"
+                aria-label="Chat on WhatsApp"
               >
-                <Whatsapp size={17} />
+                <Whatsapp size={18} />
               </a>
 
               <a
@@ -132,10 +139,11 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-secondary"
-                style={{ width: '42px', height: '42px', padding: 0, borderRadius: '50%' }}
+                style={{ width: '48px', height: '48px', minWidth: '48px', minHeight: '48px', padding: 0, borderRadius: '50%' }}
                 title="Facebook"
+                aria-label="Facebook Profile"
               >
-                <span style={{ fontWeight: 800, fontSize: '1.05rem' }}>f</span>
+                <span style={{ fontWeight: 800, fontSize: '1.1rem' }}>f</span>
               </a>
             </div>
           </div>
