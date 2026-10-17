@@ -214,6 +214,7 @@ h2.section-title,
 .gradient-text {
   background: var(--brand-gradient);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
 }
@@ -692,4 +693,26 @@ h2.section-title,
     transform: none !important;
     transition: none !important;
   }
+}
+
+/* ==========================================================================
+   Lighthouse Accessibility: Touch Targets for Cylinder Project Cards
+   ========================================================================== */
+.cylinder-btn-icon,
+.cylinder-btn-live,
+button.cylinder-btn-icon,
+a.cylinder-btn-live {
+  min-width: 48px !important;
+  min-height: 48px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 4px !important;
+}
+
+.cylinder-actions-group,
+div[class*="cylinder-actions"] {
+  gap: 12px !important;
+  display: flex !important;
+  align-items: center !important;
 }
