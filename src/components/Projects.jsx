@@ -40,11 +40,11 @@ export default function Projects() {
   // Responsive Radius calculation (airy cylinder spacing to prevent card collision)
   const [isMobile, setIsMobile] = useState(() => (typeof window !== 'undefined' ? window.innerWidth < 640 : false));
   const [radius, setRadius] = useState(() => {
-    if (typeof window === 'undefined') return 560;
+    if (typeof window === 'undefined') return 600;
     const w = window.innerWidth;
-    if (w < 640) return 310;
-    if (w < 992) return 420;
-    return 560;
+    if (w < 640) return 380;
+    if (w < 992) return 500;
+    return 600;
   });
 
   useEffect(() => {
@@ -53,11 +53,11 @@ export default function Projects() {
       const mobile = w < 640;
       setIsMobile(mobile);
       if (mobile) {
-        setRadius(310);
+        setRadius(380);
       } else if (w < 992) {
-        setRadius(420);
+        setRadius(500);
       } else {
-        setRadius(560);
+        setRadius(600);
       }
     };
     handleResize();
@@ -324,7 +324,7 @@ export default function Projects() {
               <div
                 className={`projects-cylinder-rotor ${!isTransitioning ? 'is-free-dragging' : ''}`}
                 style={{
-                  transform: `translateZ(-${radius + (isMobile ? 25 : 60)}px) rotateY(${currentRotation}deg)`,
+                  transform: `translateZ(-${radius + (isMobile ? 30 : 50)}px) rotateY(${currentRotation}deg)`,
                 }}
               >
                 {cylinderSlots.map((slotIdx) => {
@@ -340,19 +340,19 @@ export default function Projects() {
                   const absRelAngle = Math.abs(relAngle);
 
                   // Visibility & Depth Culling:
-                  // On mobile: show cards up to 70° so the 3D circular revolving ring is clearly visible
-                  // On desktop: show cards up to 82°
-                  const maxAngle = isMobile ? 70 : 82;
+                  // On mobile: show cards up to 74° so the 3D circular revolving ring is clearly visible
+                  // On desktop: show cards up to 84°
+                  const maxAngle = isMobile ? 74 : 84;
                   const isVisible = absRelAngle <= maxAngle;
                   const isActive = absRelAngle < 15;
 
                   // Smooth opacity & blur falloff along the cylinder curve
                   const opacity = isVisible
                     ? (isMobile
-                        ? (isActive ? 1 : Math.max(0.28, 0.72 - (absRelAngle / 70) * 0.44))
-                        : Math.max(0.2, 1 - (absRelAngle / 82) * 0.55))
+                        ? (isActive ? 1 : Math.max(0.3, 0.75 - (absRelAngle / 74) * 0.45))
+                        : Math.max(0.25, 1 - (absRelAngle / 84) * 0.58))
                     : 0;
-                  const blurAmount = isActive ? 0 : (isMobile ? Math.min(1.2, (absRelAngle / 70) * 1.4) : Math.min(1.8, (absRelAngle / 82) * 1.6));
+                  const blurAmount = isActive ? 0 : (isMobile ? Math.min(1.2, (absRelAngle / 74) * 1.4) : Math.min(1.8, (absRelAngle / 84) * 1.6));
                   const zIndex = Math.round(100 - absRelAngle);
 
                   const currentDesc = project.description[language] || project.description.en;

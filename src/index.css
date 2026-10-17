@@ -702,17 +702,35 @@ h2.section-title,
 .cylinder-btn-live,
 button.cylinder-btn-icon,
 a.cylinder-btn-live {
-  min-width: 48px !important;
-  min-height: 48px !important;
+  min-width: 40px !important;
+  min-height: 40px !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  margin: 4px !important;
+  position: relative !important;
+  margin: 0 !important;
+}
+
+/* Ensure 48x48px interactive touch area without bloating visual margins */
+.cylinder-btn-icon::after,
+.cylinder-btn-live::after,
+button.cylinder-btn-icon::after,
+a.cylinder-btn-live::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 48px;
+  min-height: 48px;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
 }
 
 .cylinder-actions-group,
 div[class*="cylinder-actions"] {
-  gap: 12px !important;
+  gap: 8px !important;
   display: flex !important;
   align-items: center !important;
 }
